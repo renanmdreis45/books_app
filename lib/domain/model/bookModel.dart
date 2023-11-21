@@ -37,20 +37,3 @@ class BookModel {
         "download_url": downloadUrl,
       };
 }
-
-class BookResponse {
-  final List<BookModel> books;
-  final String error;
-
-  BookResponse(this.books, this.error);
-
-  BookResponse.fromJson(String jsonString)
-      : books = (json.decode(jsonString) as List)
-            .map((e) => BookModel.fromJson(e))
-            .toList(),
-        error = "";
-
-  BookResponse.showError(String errorValue)
-      : books = [],
-        error = errorValue;
-}
