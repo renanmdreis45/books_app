@@ -19,6 +19,8 @@ class BookModel {
     required this.downloadUrl,
   });
 
+  String toRawJson() => json.encode(toJson());
+
   factory BookModel.fromJson(Map<String, dynamic> json) => BookModel(
         id: json["id"],
         title: json["title"],
