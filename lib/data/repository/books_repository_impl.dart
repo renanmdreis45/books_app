@@ -12,7 +12,7 @@ class BooksRepositoryImpl implements BooksRepository {
   @override
   Future<List<BookModel>> getBooks() async {
     final fetchedList = await _api.getBooks();
-
+    print(fetchedList);
     return fetchedList;
   }
 }
