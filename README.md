@@ -1,16 +1,8 @@
 # challenge_2_escribo
 
-"A new Flutter project."
+## Arquitetura
 
-## Getting Started
+A arquitetura utilizada foi Clean Code, onde cada camada possui sua responsabilidade única, seguindo o primeiro princípio do SOLID e uso de interfaces para os repositórios reduz o acoplamento entre os objetos, limitando o acesso e garantindo quais métodos do repositório vão poder ser acessados.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Execução
+Tive uns problemas ao utilizar MultiProviders e surgiu alguns erros na execução, devido a isso não consegui finalizar e dar andamento ao aplicativo dentro do prazo. Agradeço pelo desafio e pela oportunidade para analisar alguns pontos que preciso melhorar.

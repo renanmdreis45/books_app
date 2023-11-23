@@ -6,29 +6,36 @@ import 'package:challenge_2_escribo/domain/usecase/get_all_books.dart';
 import 'package:logger/logger.dart';
 
 class BooksViewModel extends ChangeNotifier {
-  GetAllBooks? getAllBooks;
-  GetFavoriteBooks? getFavoriteBooks;
-  SaveFavoriteBooks? saveFavoriteBooks;
+  BooksViewModel({
+    required GetAllBooks getAllBooks,
+    required GetFavoriteBooks getFavoriteBooks,
+    required SaveFavoriteBooks saveFavoriteBooks,
+  })  : _getAllBooks = getAllBooks,
+        _getFavoriteBooks = getFavoriteBooks,
+        _saveFavoriteBooks = saveFavoriteBooks;
+
+  final GetAllBooks _getAllBooks;
+  final GetFavoriteBooks _getFavoriteBooks;
+  final SaveFavoriteBooks _saveFavoriteBooks;
 
   List<BookModel> books = [];
   List<BookModel> favoriteBooks = [];
 
   void fetchBooks() async {
-    final list = await getAllBooks?.call();
-    books.addAll(list!);
+    final list = await _getAllBooks.call();
     var logger = Logger();
-    logger.d(books);
+    logger.d(list);
     notifyListeners();
   }
 
   void getFavorites() {
-    final favorites = getFavoriteBooks!.call();
+    final favorites = _getFavoriteBooks.call();
     favoriteBooks.addAll(favorites);
     notifyListeners();
   }
 
   void saveFavorites() {
-    saveFavoriteBooks?.call(list: favoriteBooks);
+    _saveFavoriteBooks.call(list: favoriteBooks);
     notifyListeners();
   }
 
