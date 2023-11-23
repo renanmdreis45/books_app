@@ -5,6 +5,7 @@ import 'package:challenge_2_escribo/domain/usecase/save_favorite_books.dart';
 import 'package:challenge_2_escribo/presentation/books/books_view.dart';
 import 'package:challenge_2_escribo/presentation/books/books_view_model.dart';
 import 'package:challenge_2_escribo/presentation/favorites/favorites_view.dart';
+import 'package:challenge_2_escribo/presentation/favorites/favorites_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -26,7 +27,8 @@ class App extends StatelessWidget {
         ChangeNotifierProvider(
           lazy: true,
           create: (BuildContext context) => FavoritesViewModel(
-            getAllBooks: Provider.of<GetAllBooks>(context, listen: false),
+            getFavoriteBooks: Provider.of<GetFavoriteBooks>(context, listen: false),
+            saveFavoriteBooks: Provider.of<SaveFavoriteBooks>(context, listen: false),
           ),
         )
       ],
