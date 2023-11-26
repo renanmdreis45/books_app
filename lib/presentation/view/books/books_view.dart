@@ -1,4 +1,4 @@
-import 'package:challenge_2_escribo/presentation/books/books_view_model.dart';
+import 'package:challenge_2_escribo/presentation/view_model/books_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
