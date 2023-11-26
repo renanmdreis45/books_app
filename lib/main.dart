@@ -28,7 +28,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           useMaterial3: true,
         ),
-        initialRoute: BooksView.route,
         routes: {
           BooksView.route: (context) => const BooksView(),
           FavoritesView.route: (context) => const FavoritesView(),
