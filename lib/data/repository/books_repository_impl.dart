@@ -1,3 +1,4 @@
+import 'package:challenge_2_escribo/core/resources/data_state.dart';
 import 'package:challenge_2_escribo/data/sources/remote/api.dart';
 import 'package:challenge_2_escribo/domain/model/bookModel.dart';
 import 'package:challenge_2_escribo/domain/repository/books_repository.dart';
@@ -10,9 +11,13 @@ class BooksRepositoryImpl implements BooksRepository {
   }) : _api = api;
 
   @override
-  Future<List<BookModel>> getBooks() async {
-    final fetchedList = await _api.getBooks();
-    print(fetchedList);
-    return fetchedList;
+  Future<DataState<List<BookModel>>> getBooks() async {
+    try {
+      final httpResponse = await _api.getBooks();
+
+      if(httpResponse.response.statusCode == HttpStatus.ok) {
+        return DataSucess(httpResponse.data);
+      }
+    }
   }
 }

@@ -1,5 +1,6 @@
+import 'package:challenge_2_escribo/core/resources/data_state.dart';
 import 'package:challenge_2_escribo/domain/model/bookModel.dart';
 
 abstract class BooksRepository {
-  Future<List<BookModel>> getBooks();
+  Future<DataState<List<BookModel>>> getBooks();
 }
