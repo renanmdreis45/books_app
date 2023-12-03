@@ -1,8 +1,9 @@
 
 part of 'books_service.dart';
+
 class _BooksService implements BooksService {
   _BooksService(this._dio, {this.baseUrl}) {
-    baseUrl ??= '';
+    baseUrl ??= 'https://api.nytimes.com/svc/books/v3';
   }
 
   final Dio _dio;
