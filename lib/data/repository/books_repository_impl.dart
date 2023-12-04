@@ -1,7 +1,7 @@
-import 'package:challenge_2_escribo/core/resources/data_state.dart';
-import 'package:challenge_2_escribo/data/sources/remote/api.dart';
-import 'package:challenge_2_escribo/domain/model/bookModel.dart';
-import 'package:challenge_2_escribo/domain/repository/books_repository.dart';
+import 'package:books_app/core/resources/data_state.dart';
+import 'package:books_app/data/sources/remote/books_service.dart';
+import 'package:books_app/domain/model/bookModel.dart';
+import 'package:books_app/domain/repository/books_repository.dart';
 
 class BooksRepositoryImpl implements BooksRepository {
   final Api _api;
@@ -15,9 +15,11 @@ class BooksRepositoryImpl implements BooksRepository {
     try {
       final httpResponse = await _api.getBooks();
 
-      if(httpResponse.response.statusCode == HttpStatus.ok) {
+      if (httpResponse.response.statusCode == HttpStatus.ok) {
         return DataSucess(httpResponse.data);
       }
+    } catch (error) {
+        
     }
   }
 }

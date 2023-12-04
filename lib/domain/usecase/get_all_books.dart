@@ -1,6 +1,6 @@
-import 'package:challenge_2_escribo/core/resources/data_state.dart';
-import 'package:challenge_2_escribo/domain/model/bookModel.dart';
-import 'package:challenge_2_escribo/domain/repository/books_repository.dart';
+import 'package:books_app/core/resources/data_state.dart';
+import 'package:books_app/domain/model/bookModel.dart';
+import 'package:books_app/domain/repository/books_repository.dart';
 import 'package:logger/logger.dart';
 
 class GetAllBooks {

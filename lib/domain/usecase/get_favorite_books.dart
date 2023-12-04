@@ -1,5 +1,5 @@
-import 'package:challenge_2_escribo/domain/model/bookModel.dart';
-import 'package:challenge_2_escribo/domain/repository/favorites_repository.dart';
+import 'package:books_app/domain/model/bookModel.dart';
+import 'package:books_app/domain/repository/favorites_repository.dart';
 
 class GetFavoriteBooks {
   GetFavoriteBooks({required FavoritesRepository repository})
@@ -7,7 +7,7 @@ class GetFavoriteBooks {
 
   final FavoritesRepository _repository;
 
-  List<BookModel> call()  {
+  List<BookModel> call() {
     final list = _repository.getFavoriteBooks();
 
     return list;

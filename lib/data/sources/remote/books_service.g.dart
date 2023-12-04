@@ -15,7 +15,7 @@ class _BooksService implements BooksService {
       {apiKey, country, category}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
-      r'apiKey': apiKey,
+      'api-key': apiKey,
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
@@ -26,7 +26,7 @@ class _BooksService implements BooksService {
                 .compose(_dio.options, '/',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    List<BookModel> value = _result.data!['books']
+    List<BookModel> value = _result.data!['results']['lists']
         .map<BookModel>((dynamic i) => BookModel.fromJson(i as Map<String, dynamic>))
         .toList();
     final httpResponse = HttpResponse(value, _result);

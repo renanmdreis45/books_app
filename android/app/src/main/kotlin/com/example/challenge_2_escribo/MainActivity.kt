@@ -1,4 +1,4 @@
-package com.example.challenge_2_escribo
+package com.example.books_app
 
 import io.flutter.embedding.android.FlutterActivity
 

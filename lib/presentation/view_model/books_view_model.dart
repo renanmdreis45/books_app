@@ -1,12 +1,11 @@
-import 'package:challenge_2_escribo/domain/model/bookModel.dart';
-import 'package:challenge_2_escribo/domain/usecase/get_favorite_books.dart';
-import 'package:challenge_2_escribo/domain/usecase/save_favorite_books.dart';
+import 'package:books_app/domain/model/bookModel.dart';
+import 'package:books_app/domain/usecase/get_favorite_books.dart';
+import 'package:books_app/domain/usecase/save_favorite_books.dart';
 import 'package:flutter/material.dart';
-import 'package:challenge_2_escribo/domain/usecase/get_all_books.dart';
+import 'package:books_app/domain/usecase/get_all_books.dart';
 import 'package:logger/logger.dart';
 
 class BooksViewModel extends ChangeNotifier {
-
   GetAllBooks? _getAllBooks;
   GetFavoriteBooks? _getFavoriteBooks;
   SaveFavoriteBooks? _saveFavoriteBooks;

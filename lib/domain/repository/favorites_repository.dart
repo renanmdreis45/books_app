@@ -1,4 +1,4 @@
-import 'package:challenge_2_escribo/domain/model/bookModel.dart';
+import 'package:books_app/domain/model/bookModel.dart';
 
 abstract class FavoritesRepository {
   List<BookModel> getFavoriteBooks();

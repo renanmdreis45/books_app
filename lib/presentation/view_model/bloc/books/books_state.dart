@@ -1,10 +1,10 @@
-import 'package:challenge_2_escribo/domain/model/bookModel.dart';
+import 'package:books_app/domain/model/bookModel.dart';
 import 'package:equatable/equatable.dart';
 import 'package:dio/dio.dart';
 
 abstract class BookState extends Equatable {
   final List<BookModel>? books;
-  final DioException ? error;
+  final DioException? error;
 
   const BookState({this.books, this.error});
 
