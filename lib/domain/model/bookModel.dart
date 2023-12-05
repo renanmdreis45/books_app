@@ -8,32 +8,31 @@ class BookModel {
   int id;
   String title;
   String author;
+  String description;
   String coverUrl;
+  String date;
+  int rating;
   String downloadUrl;
 
   BookModel({
     required this.id,
     required this.title,
     required this.author,
+    required this.description,
     required this.coverUrl,
+    required this.date,
+    required this.rating,
     required this.downloadUrl,
   });
 
-  String toRawJson() => json.encode(toJson());
-
   factory BookModel.fromJson(Map<String, dynamic> json) => BookModel(
         id: json["id"],
-        title: json["title"],
-        author: json["author"],
-        coverUrl: json["cover_url"],
+        title: json["volumeInfo"]["title"],
+        author: json["volumeInfo"]["authors"][0],
+        description: json["description"],
+        coverUrl: json["imageLinks"]["thumbnail"],
+        date: json["publishedDate"],
+        rating: json["averageRating"],
         downloadUrl: json["download_url"],
       );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "title": title,
-        "author": author,
-        "cover_url": coverUrl,
-        "download_url": downloadUrl,
-      };
 }

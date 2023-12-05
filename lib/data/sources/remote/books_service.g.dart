@@ -3,7 +3,7 @@ part of 'books_service.dart';
 
 class _BooksService implements BooksService {
   _BooksService(this._dio, {this.baseUrl}) {
-    baseUrl ??= 'https://api.nytimes.com/svc/books/v3';
+    baseUrl ??= 'https://www.googleapis.com/books/v1';
   }
 
   final Dio _dio;
@@ -15,6 +15,8 @@ class _BooksService implements BooksService {
       {apiKey, country, category}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
+      'q': authorParams,
+      'download': downloadParams,
       'api-key': apiKey,
     };
     queryParameters.removeWhere((k, v) => v == null);
@@ -26,7 +28,7 @@ class _BooksService implements BooksService {
                 .compose(_dio.options, '/',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    List<BookModel> value = _result.data!['results']['lists']
+    List<BookModel> value = _result.data!['items']
         .map<BookModel>((dynamic i) => BookModel.fromJson(i as Map<String, dynamic>))
         .toList();
     final httpResponse = HttpResponse(value, _result);

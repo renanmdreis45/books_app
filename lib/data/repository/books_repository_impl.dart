@@ -4,22 +4,16 @@ import 'package:books_app/domain/model/bookModel.dart';
 import 'package:books_app/domain/repository/books_repository.dart';
 
 class BooksRepositoryImpl implements BooksRepository {
-  final Api _api;
+  final BooksService _booksService;
 
-  BooksRepositoryImpl({
-    required Api api,
-  }) : _api = api;
+  BooksRepositoryImpl({this._booksService});
 
   @override
   Future<DataState<List<BookModel>>> getBooks() async {
     try {
-      final httpResponse = await _api.getBooks();
-
-      if (httpResponse.response.statusCode == HttpStatus.ok) {
-        return DataSucess(httpResponse.data);
-      }
-    } catch (error) {
-        
+      final httpResponse = await _booksService.getBooks(
+        apiKey: booksApiK
+      )
     }
   }
 }

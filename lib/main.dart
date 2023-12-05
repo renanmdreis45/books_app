@@ -73,7 +73,7 @@ class MyApp extends StatelessWidget {
 
         return null;
       },
-      home: BooksView(),
+      home: const BooksView(),
     );
   }
 }

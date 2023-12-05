@@ -9,8 +9,9 @@ part 'books_service.g.dart';
 abstract class BooksService {
   factory BooksService(Dio dio) = _BooksService;
 
-  @GET('/lists/full-overview.json')
+  @GET('/volumes')
   Future<HttpResponse<List<BookModel>>> getBooks({
     @Query("api-key") String? apiKey,
+    
   });
 }
