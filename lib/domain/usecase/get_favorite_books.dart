@@ -1,11 +1,11 @@
 import 'package:books_app/domain/model/bookModel.dart';
-import 'package:books_app/domain/repository/favorites_repository.dart';
+import 'package:books_app/domain/repository/books_repository.dart';
 
 class GetFavoriteBooks {
-  GetFavoriteBooks({required FavoritesRepository repository})
+  GetFavoriteBooks({required BooksRepository repository})
       : _repository = repository;
 
-  final FavoritesRepository _repository;
+  final BooksRepository _repository;
 
   List<BookModel> call() {
     final list = _repository.getFavoriteBooks();
