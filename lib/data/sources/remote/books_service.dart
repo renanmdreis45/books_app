@@ -11,7 +11,8 @@ abstract class BooksService {
 
   @GET('/volumes')
   Future<HttpResponse<List<BookModel>>> getBooks({
-    @Query("api-key") String? apiKey,
-    
+    @Query("q") String? q,
+    @Query("download") String? download,
+    @Query("key") String? key,
   });
 }

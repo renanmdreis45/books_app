@@ -1,4 +1,3 @@
-
 part of 'books_service.dart';
 
 class _BooksService implements BooksService {
@@ -11,25 +10,26 @@ class _BooksService implements BooksService {
   String? baseUrl;
 
   @override
-  Future<HttpResponse<List<BookModel>>> getBooks(
-      {apiKey, country, category}) async {
+  Future<HttpResponse<List<BookModel>>> getBooks({q, download, key}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
-      'q': authorParams,
-      'download': downloadParams,
-      'api-key': apiKey,
+      r'q': q,
+      r'download': download,
+      r'key': key,
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.fetch<Map<String,dynamic>>(
+    final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<HttpResponse<List<BookModel>>>(
             Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, '/',
+                .compose(_dio.options, '/volumes',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    print(_result.data!['items']);
     List<BookModel> value = _result.data!['items']
-        .map<BookModel>((dynamic i) => BookModel.fromJson(i as Map<String, dynamic>))
+        .map<BookModel>(
+            (dynamic i) => BookModel.fromJson(i as Map<String, dynamic>))
         .toList();
     final httpResponse = HttpResponse(value, _result);
     return httpResponse;
