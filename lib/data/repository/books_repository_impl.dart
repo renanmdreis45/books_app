@@ -15,7 +15,7 @@ class BooksRepositoryImpl implements BooksRepository {
   BooksRepositoryImpl(this._booksService, this._localStorage);
 
   @override
-  Future<DataState> getBooks() async {
+  Future<DataState<List<BookModel>>> getBooks() async {
     try {
       final httpResponse =
           await _booksService.getBooks(q: q, download: download, key: key);
