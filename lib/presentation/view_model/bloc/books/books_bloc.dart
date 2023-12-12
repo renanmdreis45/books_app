@@ -14,6 +14,12 @@ class BooksBloc extends Bloc<BooksEvent, BookState> {
   void onGetBooks(GetBooks event, Emitter<BookState> emit) async {
     final dataState = await _getAllBooks();
 
-    if (dataState is DataSucess && dataState.data!.isNotEmpty) {}
+    if (dataState is DataSucess && dataState.data!.isNotEmpty) {
+      emit(BooksDone(dataState.data!));
+    }
+
+    if (dataState is DataError) {
+      emit(BooksError(dataState.error!));
+    }
   }
 }

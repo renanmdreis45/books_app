@@ -16,7 +16,6 @@ class BooksViewModel extends ChangeNotifier {
   void fetchBooks() async {
     final list = await _getAllBooks?.call();
     var logger = Logger();
-    logger.d(list);
     notifyListeners();
   }
 
