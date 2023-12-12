@@ -6,8 +6,11 @@ import 'package:books_app/presentation/view/favorites/favorites_view.dart';
 import 'package:books_app/presentation/view_model/books_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:books_app/injection_container.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await initializeDependencies();
   runApp(ChangeNotifierProvider(
     create: (_) => BooksViewModel(),
     child: MyApp(),
