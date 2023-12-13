@@ -2,7 +2,7 @@ import 'package:books_app/domain/model/bookModel.dart';
 import 'package:floor/floor.dart';
 
 @dao
-abstract class BooksDao {
+abstract class BookDao {
   @Insert()
   Future<void> insertBook(BookModel book);
 
