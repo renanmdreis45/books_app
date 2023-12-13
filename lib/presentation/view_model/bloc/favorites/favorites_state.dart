@@ -10,4 +10,11 @@ abstract class FavoritesState extends Equatable {
   List<Object> get props => [favorites!];
 }
 
-class FavoritesDone
+class FavoritesLoading extends FavoritesState {
+  const FavoritesLoading();
+}
+
+class FavoritesDone extends FavoritesState {
+  const FavoritesDone(List<BookModel> favorites) : super(favorites: favorites);
+}
+
