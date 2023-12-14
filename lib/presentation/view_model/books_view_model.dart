@@ -1,6 +1,6 @@
 import 'package:books_app/domain/model/bookModel.dart';
 import 'package:books_app/domain/usecase/get_favorite_books.dart';
-import 'package:books_app/domain/usecase/save_favorite_books.dart';
+import 'package:books_app/domain/usecase/add_favorite_book.dart';
 import 'package:flutter/material.dart';
 import 'package:books_app/domain/usecase/get_all_books.dart';
 import 'package:logger/logger.dart';

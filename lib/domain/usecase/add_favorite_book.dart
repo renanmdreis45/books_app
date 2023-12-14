@@ -7,7 +7,7 @@ class SaveFavoriteBooks {
 
   final BooksRepository _repository;
 
-  Future<bool> call({required List<BookModel> list}) async {
-    return _repository.saveFavoriteBooks(list: list);
+  Future<void> call({required BookModel book}) async {
+    return _repository.saveFavoriteBook(book: book);
   }
 }

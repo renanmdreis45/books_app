@@ -4,7 +4,7 @@ import 'package:books_app/data/sources/remote/books_service.dart';
 import 'package:books_app/domain/repository/books_repository.dart';
 import 'package:books_app/domain/usecase/get_all_books.dart';
 import 'package:books_app/domain/usecase/get_favorite_books.dart';
-import 'package:books_app/domain/usecase/save_favorite_books.dart';
+import 'package:books_app/domain/usecase/add_favorite_book.dart';
 import 'package:books_app/presentation/view_model/bloc/books/books_bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';

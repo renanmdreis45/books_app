@@ -1,6 +1,6 @@
 import 'package:books_app/domain/usecase/get_all_books.dart';
 import 'package:books_app/domain/usecase/get_favorite_books.dart';
-import 'package:books_app/domain/usecase/save_favorite_books.dart';
+import 'package:books_app/domain/usecase/add_favorite_book.dart';
 import 'package:books_app/presentation/view/books/books_view.dart';
 import 'package:books_app/presentation/view/favorites/favorites_view.dart';
 import 'package:books_app/presentation/view_model/books_view_model.dart';

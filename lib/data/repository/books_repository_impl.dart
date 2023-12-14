@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:books_app/core/constants/constants.dart';
 import 'package:books_app/core/resources/data_state.dart';
-import 'package:books_app/data/sources/local/local_storage.dart';
+import 'package:books_app/data/sources/local/app_database.dart';
 import 'package:books_app/data/sources/remote/books_service.dart';
 import 'package:books_app/domain/model/bookModel.dart';
 import 'package:books_app/domain/repository/books_repository.dart';
@@ -10,9 +10,9 @@ import 'package:dio/dio.dart';
 
 class BooksRepositoryImpl implements BooksRepository {
   final BooksService _booksService;
-  final LocalStorageImpl _localStorage;
+  final AppDatabase _appDatabase;
 
-  BooksRepositoryImpl(this._booksService, this._localStorage);
+  BooksRepositoryImpl(this._booksService, this._appDatabase);
 
   @override
   Future<DataState<List<BookModel>>> getBooks() async {
@@ -36,16 +36,21 @@ class BooksRepositoryImpl implements BooksRepository {
   }
 
   @override
-  List<BookModel> getFavoriteBooks() {
-    final favoriteBooks = _localStorage.getFavoriteBooks();
+  Future<List<BookModel>> getFavoriteBooks() async {
+    final favoriteBooks = _appDatabase.bookDao.getFavoriteBooks();
 
     return favoriteBooks;
   }
 
   @override
-  Future<bool> saveFavoriteBooks({
-    required List<BookModel> list,
+  Future<void> saveFavoriteBook({
+    required BookModel book,
   }) {
-    return _localStorage.saveFavoriteBooks(list: list);
+    return _appDatabase.bookDao.insertBook(book);
+  }
+
+  @override
+  Future<void> removeBook({required BookModel book}) {
+    return _appDatabase.bookDao.removeBook(book);
   }
 }

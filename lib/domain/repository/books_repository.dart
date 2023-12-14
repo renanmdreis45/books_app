@@ -3,6 +3,7 @@ import 'package:books_app/domain/model/bookModel.dart';
 
 abstract class BooksRepository {
   Future<DataState<List<BookModel>>> getBooks();
-  List<BookModel> getFavoriteBooks();
-  Future<bool> saveFavoriteBooks({required List<BookModel> list});
+  Future<List<BookModel>> getFavoriteBooks();
+  Future<void> saveFavoriteBook({required BookModel book});
+  Future<void> removeBook({required BookModel book});
 }

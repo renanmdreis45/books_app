@@ -2,12 +2,12 @@ import 'package:books_app/domain/model/bookModel.dart';
 import 'package:books_app/domain/repository/books_repository.dart';
 
 class RemoveBook {
-  final BooksRepository _booksRepository;
+   RemoveBook({required BooksRepository repository})
+      : _repository = repository;
 
-  RemoveBook(this._booksRepository);
+  final BooksRepository _repository;
 
-  @override
-  Future<void> call({BookModel ? book}) {
-    
+  Future<void> call({required BookModel book}) {
+    return _repository.removeBook(book: book);
   }
 }

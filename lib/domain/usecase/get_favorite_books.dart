@@ -7,7 +7,7 @@ class GetFavoriteBooks {
 
   final BooksRepository _repository;
 
-  List<BookModel> call() {
+  Future<List<BookModel>> call() {
     final list = _repository.getFavoriteBooks();
 
     return list;
