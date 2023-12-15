@@ -10,12 +10,12 @@ abstract class FavoritesEvent extends Equatable {
   List<Object> get props => [book!];
 }
 
-class GetFavoriteBooks extends FavoritesEvent {
-  const GetFavoriteBooks();
+class GetFavorites extends FavoritesEvent {
+  const GetFavorites();
 }
 
-class RemoveBook extends FavoritesEvent {
-  const RemoveBook(BookModel book) : super(book: book);
+class RemoveFavorite extends FavoritesEvent {
+  const RemoveFavorite(BookModel book) : super(book: book);
 }
 
 class AddBook extends FavoritesEvent {
