@@ -5,7 +5,9 @@ import 'package:books_app/domain/repository/books_repository.dart';
 import 'package:books_app/domain/usecase/get_all_books.dart';
 import 'package:books_app/domain/usecase/get_favorite_books.dart';
 import 'package:books_app/domain/usecase/add_favorite_book.dart';
+import 'package:books_app/domain/usecase/remove_book.dart';
 import 'package:books_app/presentation/view_model/bloc/books/books_bloc.dart';
+import 'package:books_app/presentation/view_model/bloc/favorites/favorites_bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
@@ -31,8 +33,10 @@ Future<void> initializeDependencies() async {
 
   sl.registerSingleton<SaveFavoriteBooks>(SaveFavoriteBooks(repository: sl()));
 
+  sl.registerSingleton<RemoveBook>(RemoveBook(repository: sl()));
+
   //Bloc
-  sl.registerFactory<BooksBloc>(
-    () => BooksBloc(sl())
-  );  
+  sl.registerFactory<BooksBloc>(() => BooksBloc(sl()));
+
+  sl.registerFactory<FavoritesBloc>(() => FavoritesBloc(sl(), sl(), sl()));
 }

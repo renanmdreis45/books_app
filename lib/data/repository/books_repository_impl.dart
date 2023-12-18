@@ -14,6 +14,7 @@ class BooksRepositoryImpl implements BooksRepository {
 
   BooksRepositoryImpl(this._booksService, this._appDatabase);
 
+
   @override
   Future<DataState<List<BookModel>>> getBooks() async {
     try {

@@ -7,3 +7,6 @@ abstract class BooksRepository {
   Future<void> saveFavoriteBook({required BookModel book});
   Future<void> removeBook({required BookModel book});
 }
+
+
+
