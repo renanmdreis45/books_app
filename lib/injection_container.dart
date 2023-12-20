@@ -13,7 +13,7 @@ import 'package:get_it/get_it.dart';
 
 final sl = GetIt.instance;
 
-Future<void> initializeDependencies() async {
+void setup() {
   //Local Storage
   sl.registerSingleton<LocalStorage>(LocalStorageImpl(sharedPreferences: sl()));
 
