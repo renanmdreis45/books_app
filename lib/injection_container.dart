@@ -1,5 +1,5 @@
 import 'package:books_app/data/repository/books_repository_impl.dart';
-import 'package:books_app/data/sources/local/local_storage.dart';
+import 'package:books_app/data/sources/local/app_database.dart';
 import 'package:books_app/data/sources/remote/books_service.dart';
 import 'package:books_app/domain/repository/books_repository.dart';
 import 'package:books_app/domain/usecase/get_all_books.dart';
@@ -13,9 +13,11 @@ import 'package:get_it/get_it.dart';
 
 final sl = GetIt.instance;
 
-void setup() {
+Future<void> initializeDependencies() async {
   //Local Storage
-  sl.registerSingleton<LocalStorage>(LocalStorageImpl(sharedPreferences: sl()));
+  final database =
+      await $FloorAppDatabase.databaseBuilder('app_database.db').build();
+  sl.registerSingleton<AppDatabase>(database);
 
   //Dio
   sl.registerSingleton<Dio>(Dio());
