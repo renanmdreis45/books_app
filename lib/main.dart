@@ -7,7 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // setup();
+  initializeDependencies();
   runApp(const MyApp());
 }
 
