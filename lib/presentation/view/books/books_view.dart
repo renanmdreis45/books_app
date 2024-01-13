@@ -47,24 +47,24 @@ class _BooksView extends State<BooksView> {
           return ListView.builder(
             padding: const EdgeInsets.all(8.0),
             itemBuilder: (BuildContext context, int index) {
-              return const Card(
+              return  Card(
                   child: Column(
                 children: [
-                  // state.books![index].coverUrl == ''
-                  //     ? Container()
-                  //     : Image(
-                  //         height: MediaQuery.of(context).size.height * 0.70,
-                  //         width: 140,
-                  //         image: NetworkImage(state.books![index].coverUrl),
-                  //       ),
-                  SizedBox(
+                  state.books![index].coverUrl == ''
+                      ? Container()
+                      : Image(
+                          height: MediaQuery.of(context).size.height * 0.70,
+                          width: 140,
+                          image: NetworkImage(state.books![index].coverUrl),
+                        ),
+                  const SizedBox(
                     height: 5,
                   ),
-                  Text('teste'),
-                  SizedBox(
+                  Text('Author: ${state.books![index].author}'),
+                  const SizedBox(
                     height: 5,
                   ),
-                  Text('teste')
+                  Text('Description: ${state.books![index].description}'),
                 ],
               ));
             },
