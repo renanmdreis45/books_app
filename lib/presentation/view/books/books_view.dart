@@ -65,6 +65,14 @@ class _BooksView extends State<BooksView> {
                     height: 5,
                   ),
                   Text('Description: ${state.books![index].description}'),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Text('Date: ${state.books![index].date}'),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Text('Rating: ${state.books![index].rating}'),
                 ],
               ));
             },
