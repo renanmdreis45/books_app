@@ -19,16 +19,28 @@ Future<void> initializeDependencies() async {
       await $FloorAppDatabase.databaseBuilder('app_database.db').build();
 
   //Books
-  sl..registerFactory<BooksBloc>(() => BooksBloc(sl()))
-    ..registerLazySingleton<GetAllBooks>(() => GetAllBooks(repository: sl()))
-      ..registerSingleton<BooksRepository>(BooksRepositoryImpl(sl(), sl()))
-        ..registerSingleton<BooksService>(BooksService(sl()))..registerSingleton<Dio>(Dio());
+  sl.registerFactory<BooksBloc>(() => BooksBloc(sl()));
+
+  sl.registerLazySingleton<GetAllBooks>(() => GetAllBooks(repository: sl()));
+  
+  sl.registerSingleton<BooksRepository>(BooksRepositoryImpl(sl(), sl()));
+  
+  sl.registerSingleton<BooksService>(BooksService(sl()));
+  
+  sl.registerSingleton<Dio>(Dio());
 
   //Favorites
-  sl..registerFactory<FavoritesBloc>(() => FavoritesBloc(sl(), sl(), sl()))..registerLazySingleton<GetFavoriteBooks>(
-      () => GetFavoriteBooks(repository: sl()))
-        ..registerLazySingleton<SaveFavoriteBooks>(() => SaveFavoriteBooks(repository: sl()))
-          ..registerLazySingleton<RemoveBook>(() => RemoveBook(repository: sl()))
-            ..registerSingleton<BooksRepository>(BooksRepositoryImpl(sl(), sl()))
-                ..registerSingleton<AppDatabase>(database);
+  sl.registerFactory<FavoritesBloc>(() => FavoritesBloc(sl(), sl(), sl()));
+  
+  sl.registerLazySingleton<GetFavoriteBooks>(
+        () => GetFavoriteBooks(repository: sl()));
+  
+  sl.registerLazySingleton<SaveFavoriteBooks>(
+        () => SaveFavoriteBooks(repository: sl()));
+  
+  sl.registerLazySingleton<RemoveBook>(() => RemoveBook(repository: sl()));
+  
+  sl.registerSingleton<BooksRepository>(BooksRepositoryImpl(sl(), sl()));
+  
+  sl.registerSingleton<AppDatabase>(database);
 }
