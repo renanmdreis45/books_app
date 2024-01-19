@@ -23,7 +23,7 @@ class _BooksView extends State<BooksView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(),
-      // body: _buildBody(),
+      body: _buildBody(),
     );
   }
 
@@ -45,10 +45,14 @@ class _BooksView extends State<BooksView> {
         
           return ListView.builder(
             padding: const EdgeInsets.all(8.0),
+            itemCount: 10,
             itemBuilder: (BuildContext context, int index) {
               return  Card(
                   child: Column(
                 children: [
+                  const SizedBox(
+                    height: 40,
+                  ),
                   Image(
                           height: MediaQuery.of(context).size.height * 0.70,
                           width: 140,

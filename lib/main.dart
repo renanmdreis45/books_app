@@ -1,13 +1,8 @@
 import 'package:books_app/presentation/view/books/books_view.dart';
-import 'package:books_app/presentation/view_model/bloc/books/books_bloc.dart';
-import 'package:books_app/presentation/view_model/bloc/books/books_event.dart';
 import 'package:flutter/material.dart';
-import 'package:books_app/injection_container.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  initializeDependencies();
   runApp(const MyApp());
 }
 
