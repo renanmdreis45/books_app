@@ -17,16 +17,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<BooksBloc>(
-      create: (context) => sl()..add(const GetBooks()),
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Books App',
-        theme: ThemeData(
-          useMaterial3: true,
-        ),
-        home: const BooksView(),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Books App',
+      theme: ThemeData(
+        useMaterial3: true,
       ),
+      home: const BooksView(),
     );
   }
 }

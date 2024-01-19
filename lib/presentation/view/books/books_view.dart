@@ -23,7 +23,7 @@ class _BooksView extends State<BooksView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(),
-      body: _buildBody(),
+      // body: _buildBody(),
     );
   }
 
@@ -41,8 +41,7 @@ class _BooksView extends State<BooksView> {
   }
 
   _buildBody() {
-    return BlocBuilder<BooksBloc, BookState>(
-      builder: (_, state) {
+   
         
           return ListView.builder(
             padding: const EdgeInsets.all(8.0),
@@ -50,35 +49,30 @@ class _BooksView extends State<BooksView> {
               return  Card(
                   child: Column(
                 children: [
-                  state.books![index].coverUrl == ''
-                      ? Container()
-                      : Image(
+                  Image(
                           height: MediaQuery.of(context).size.height * 0.70,
                           width: 140,
-                          image: NetworkImage(state.books![index].coverUrl),
+                          image: const NetworkImage('https://cdn.pixabay.com/photo/2018/09/11/19/22/harry-potter-3670411_1280.png'),
                         ),
                   const SizedBox(
                     height: 5,
                   ),
-                  Text('Author: ${state.books![index].author}'),
+                  const Text('Author: Desconhecido'),
                   const SizedBox(
                     height: 5,
                   ),
-                  Text('Description: ${state.books![index].description}'),
+                  const Text('Description: Livro muito bom'),
                   const SizedBox(
                     height: 5,
                   ),
-                  Text('Date: ${state.books![index].date}'),
+                  const Text('Date: 19/01/2024'),
                   const SizedBox(
                     height: 5,
                   ),
-                  Text('Rating: ${state.books![index].rating}'),
+                  const Text('Rating: 5'),
                 ],
               ));
             },
           );
-        
-      },
-    );
   }
 }
