@@ -58,7 +58,6 @@ class BooksHeadline extends StatelessWidget {
                     Text(rating),
                     const SizedBox(width: 3,),
                     Text(date),
-
                   ],
                 ),
               ),
