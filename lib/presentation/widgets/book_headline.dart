@@ -5,7 +5,7 @@ class BooksHeadline extends StatelessWidget {
   final String description;
   final String img;
   final String date;
-  final String rating;
+  final int rating;
 
   BooksHeadline(
       this.author, this.description, this.img, this.date, this.rating);
@@ -55,7 +55,7 @@ class BooksHeadline extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(rating),
+                    Text('$rating'),
                     const SizedBox(width: 3,),
                     Text(date),
                   ],

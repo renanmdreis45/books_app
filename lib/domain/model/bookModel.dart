@@ -9,7 +9,7 @@ class BookModel {
   String title;
   String author;
   String description;
-  String coverUrl;
+  String img;
   String date;
   int rating;
   String downloadUrl;
@@ -19,7 +19,7 @@ class BookModel {
     required this.title,
     required this.author,
     required this.description,
-    required this.coverUrl,
+    required this.img,
     required this.date,
     required this.rating,
     required this.downloadUrl,
