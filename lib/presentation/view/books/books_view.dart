@@ -24,9 +24,25 @@ class _BooksView extends State<BooksView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _buildAppBar(),
-      body: AllBooksWidget()
-    );
+        appBar: _buildAppBar(),
+        body: BlocBuilder<BooksBloc, BookState>(
+          builder: (_, state) {
+            switch (state.runtimeType) {
+              case BooksLoading:
+                return const Center(
+                  child: CupertinoActivityIndicator(),
+                );
+              case BooksError:
+                return const Center(
+                  child: Icon(Icons.refresh),
+                );
+              case BooksDone:
+                return AllBooksWidget(books: state.books!,);
+              default:
+                return const SizedBox();
+            }
+          },
+        ));
   }
 
   _buildAppBar() {

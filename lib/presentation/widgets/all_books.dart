@@ -1,3 +1,4 @@
+import 'package:books_app/domain/model/bookModel.dart';
 import 'package:books_app/presentation/view_model/bloc/books/books_bloc.dart';
 import 'package:books_app/presentation/view_model/bloc/books/books_state.dart';
 import 'package:books_app/presentation/widgets/all_books_sucess.dart';
@@ -7,14 +8,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class AllBooksWidget extends StatelessWidget {
   const AllBooksWidget({
     Key? key,
-  }) : super(key: key); 
+    required List<BookModel> books
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<BooksBloc, BookState>(
       builder: (context, state) {
         return AllBooksSuccessWidget(
-            books: state.books!,
+          books: state.books!,
         );
       },
     );

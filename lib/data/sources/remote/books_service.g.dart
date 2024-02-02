@@ -6,6 +6,7 @@ class _BooksService implements BooksService {
   }
 
   final Dio _dio;
+  var logger = Logger();
 
   String? baseUrl;
 
@@ -26,7 +27,7 @@ class _BooksService implements BooksService {
                 .compose(_dio.options, '/volumes',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    print(_result.data!['items']);
+    logger.d(_result.data!['items']);
     List<BookModel> value = _result.data!['items']
         .map<BookModel>(
             (dynamic i) => BookModel.fromJson(i as Map<String, dynamic>))
