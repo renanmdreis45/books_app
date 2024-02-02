@@ -96,7 +96,7 @@ class _$BookDao extends BookDao {
                   'author': item.author,
                   'title': item.title,
                   'description': item.description,
-                  'coverUrl': item.coverUrl,
+                  'img': item.img,
                   'date': item.date,
                   'rating': item.rating,
                   'downloadUrl': item.downloadUrl
@@ -110,7 +110,7 @@ class _$BookDao extends BookDao {
                   'author': item.author,
                   'title': item.title,
                   'description': item.description,
-                  'coverUrl': item.coverUrl,
+                  'img': item.img,
                   'date': item.date,
                   'rating': item.rating,
                   'downloadUrl': item.downloadUrl
@@ -134,7 +134,7 @@ class _$BookDao extends BookDao {
             author: row['author'] as String,
             title: row['title'] as String,
             description: row['description'] as String,
-            coverUrl: row['coverUrl'] as String,
+            img: row['coverUrl'] as String,
             date: row['date'] as String,
             rating: row['rating'] as int,
             downloadUrl: row['downloadUrl'] as String));
