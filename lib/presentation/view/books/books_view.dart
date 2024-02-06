@@ -34,7 +34,7 @@ class _BooksView extends State<BooksView> {
       toolbarHeight: 70,
       title: const Center(
           child: Text(
-        'Livros',
+        'Flutter Ebook App',
         style: TextStyle(
             color: Colors.white, fontSize: 28, fontWeight: FontWeight.w700),
       )),
