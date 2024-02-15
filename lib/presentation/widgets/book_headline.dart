@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class BooksHeadline extends StatelessWidget {
-  final String author;
-  final String description;
-  final String img;
-  final String date;
-  final int rating;
+  final String? author;
+  final String? description;
+  final String? img;
+  final String? date;
+  final int? rating;
 
   BooksHeadline(
       this.author, this.description, this.img, this.date, this.rating);
@@ -21,7 +21,7 @@ class BooksHeadline extends StatelessWidget {
                             Image(
                           height: MediaQuery.of(context).size.height * 0.70,
                           width: 140,
-                          image: NetworkImage(img),
+                          image: NetworkImage(img ?? ""),
                         ),
           const SizedBox(
             width: 10,
@@ -31,7 +31,7 @@ class BooksHeadline extends StatelessWidget {
             padding: const EdgeInsets.only(top: 10.0),
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                 const Text('Author: Desconhecido'),
+                 Text(author ?? "Autor desconhecido"),
 
               const SizedBox(
                 height: 3,
@@ -42,7 +42,7 @@ class BooksHeadline extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Expanded(
-                      child: Text(description),
+                      child: Text(description ?? "Livro sem descrição"),
                     ),
                   ],
                 ),
@@ -57,7 +57,7 @@ class BooksHeadline extends StatelessWidget {
                   children: [
                     Text('$rating'),
                     const SizedBox(width: 3,),
-                    Text(date),
+                    Text(date ?? "Data Indisponível"),
                   ],
                 ),
               ),
