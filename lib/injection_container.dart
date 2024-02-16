@@ -13,7 +13,7 @@ import 'package:get_it/get_it.dart';
 
 final sl = GetIt.instance;
 
-Future<void> initializeDependencies() async {
+void initializeDependencies() async {
   //Database
   final database =
       await $FloorAppDatabase.databaseBuilder('app_database.db').build();

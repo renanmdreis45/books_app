@@ -23,10 +23,7 @@ class _BooksView extends State<BooksView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: _buildAppBar(),
-      body: AllBooksWidget()
-    );
+    return Scaffold(appBar: _buildAppBar(), body: Text("Oii"));
   }
 
   _buildAppBar() {
