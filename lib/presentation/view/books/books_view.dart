@@ -1,10 +1,6 @@
-import 'package:books_app/presentation/view_model/bloc/books/books_bloc.dart';
-import 'package:books_app/presentation/view_model/bloc/books/books_state.dart';
 import 'package:books_app/presentation/widgets/all_books.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:books_app/presentation/widgets/book_headline.dart';
 
 class BooksView extends StatefulWidget {
   static String route = "/books";
@@ -23,7 +19,7 @@ class _BooksView extends State<BooksView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: _buildAppBar(), body: Text("Oii"));
+    return Scaffold(appBar: _buildAppBar(), body: const AllBooksWidget());
   }
 
   _buildAppBar() {

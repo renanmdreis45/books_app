@@ -18,11 +18,11 @@ class BooksHeadline extends StatelessWidget {
       child: Card(
         elevation: 5,
         child: Row(children: [
-                            Image(
-                          height: MediaQuery.of(context).size.height * 0.70,
-                          width: 140,
-                          image: NetworkImage(img ?? ""),
-                        ),
+          Image(
+            height: MediaQuery.of(context).size.height * 0.70,
+            width: 140,
+            image: NetworkImage(img ?? ""),
+          ),
           const SizedBox(
             width: 10,
           ),
@@ -31,8 +31,7 @@ class BooksHeadline extends StatelessWidget {
             padding: const EdgeInsets.only(top: 10.0),
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                 Text(author ?? "Autor desconhecido"),
-
+              Text(author ?? "Autor desconhecido"),
               const SizedBox(
                 height: 3,
               ),
@@ -50,13 +49,15 @@ class BooksHeadline extends StatelessWidget {
               const SizedBox(
                 height: 6,
               ),
-                            Padding(
+              Padding(
                 padding: const EdgeInsets.only(right: 10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('$rating'),
-                    const SizedBox(width: 3,),
+                    Text('${rating ?? 0}'),
+                    const SizedBox(
+                      width: 3,
+                    ),
                     Text(date ?? "Data Indisponível"),
                   ],
                 ),

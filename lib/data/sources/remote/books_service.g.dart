@@ -20,13 +20,14 @@ class _BooksService implements BooksService {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
+    final logger = Logger();
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<HttpResponse<List<BookModel>>>(
             Options(method: 'GET', headers: _headers, extra: _extra)
                 .compose(_dio.options, '/volumes',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    print(_result.data!['items']);
+    logger.d(_result);
     List<BookModel> value = _result.data!['items']
         .map<BookModel>(
             (dynamic i) => BookModel.fromJson(i as Map<String, dynamic>))

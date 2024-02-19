@@ -14,7 +14,7 @@ class AllBooksWidget extends StatelessWidget {
     return BlocBuilder<BooksBloc, BookState>(
       builder: (context, state) {
         return AllBooksSuccessWidget(
-            books: state.books!,
+            books: state.books ?? [],
         );
       },
     );

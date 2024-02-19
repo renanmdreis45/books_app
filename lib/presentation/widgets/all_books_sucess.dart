@@ -43,11 +43,11 @@ class AllBooksSuccessWidget extends StatelessWidget {
                 itemBuilder: (context, index) {
                   BookModel booksCurrent = books[index];
                   return BooksHeadline(
-                      booksCurrent.author ?? '',
-                      booksCurrent.description ?? '',
-                      booksCurrent.img ?? '',
-                      booksCurrent.date ?? '',
-                      booksCurrent.rating ?? 0);
+                      booksCurrent.author,
+                      booksCurrent.description,
+                      booksCurrent.img,
+                      booksCurrent.date,
+                      booksCurrent.rating);
                 },
                 separatorBuilder: (_, __) => const SizedBox(
                   height: 20.0,
