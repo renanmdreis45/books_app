@@ -2,7 +2,7 @@ part of 'books_service.dart';
 
 class _BooksService implements BooksService {
   _BooksService(this._dio, {this.baseUrl}) {
-    baseUrl ??= 'https://www.googleapis.com/books/v1';
+    baseUrl ??= 'https://www.googleapis.com/books/v1/volumes';
   }
 
   final Dio _dio;
@@ -27,7 +27,7 @@ class _BooksService implements BooksService {
         .map<BookModel>(
             (dynamic i) => BookModel.fromJson(i as Map<String, dynamic>))
         .toList();
-        
+
     final httpResponse = HttpResponse(value, _result);
     return httpResponse;
   }
