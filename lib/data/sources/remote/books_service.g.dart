@@ -12,22 +12,20 @@ class _BooksService implements BooksService {
   @override
   Future<HttpResponse<List<BookModel>>> getBooks({q, download, key}) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{
-      r'q': q,
-      r'download': download,
-      r'key': key,
+
+    Map<String, dynamic> queryParameters = {
+      "q": q,
+      "download": download,
+      "key": key,
     };
-    queryParameters.removeWhere((k, v) => v == null);
+
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final logger = Logger();
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<HttpResponse<List<BookModel>>>(
-            Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, '/volumes',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    logger.d(_result);
+
+    final _result =
+        await _dio.get(baseUrl ?? _dio.options.baseUrl, queryParameters: queryParameters);
+
+    print(_result);
     List<BookModel> value = _result.data!['items']
         .map<BookModel>(
             (dynamic i) => BookModel.fromJson(i as Map<String, dynamic>))
