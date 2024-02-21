@@ -5,10 +5,10 @@ class BooksHeadline extends StatelessWidget {
   final String? description;
   final String? img;
   final String? date;
-  final int? rating;
+  final int? pageCount;
 
   BooksHeadline(
-      this.author, this.description, this.img, this.date, this.rating);
+      this.author, this.description, this.img, this.date, this.pageCount);
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +54,7 @@ class BooksHeadline extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('${rating ?? 0}'),
+                    Text('${pageCount}'),
                     const SizedBox(
                       width: 3,
                     ),

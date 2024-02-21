@@ -70,7 +70,7 @@ class _$AppDatabase extends AppDatabase {
       },
       onCreate: (database, version) async {
         await database.execute(
-            'CREATE TABLE IF NOT EXISTS `book` (`id` TEXT, `author` TEXT, `title` TEXT, `description` TEXT, `coverUrl` TEXT, `date` TEXT, `rating` INTEGER, `downloadUrl` TEXT, PRIMARY KEY (`id`))');
+            'CREATE TABLE IF NOT EXISTS `book` (`id` TEXT, `author` TEXT, `title` TEXT, `description` TEXT, `img` TEXT, `date` TEXT, `pageCount` INTEGER, `downloadUrl` TEXT, PRIMARY KEY (`id`))');
 
         await callback?.onCreate?.call(database, version);
       },
@@ -97,7 +97,7 @@ class _$BookDao extends BookDao {
                   'description': item.description,
                   'img': item.img,
                   'date': item.date,
-                  'rating': item.rating,
+                  'pageCount': item.pageCount,
                   'downloadUrl': item.downloadUrl
                 }),
         _bookModelDeletionAdapter = DeletionAdapter(
@@ -111,7 +111,7 @@ class _$BookDao extends BookDao {
                   'description': item.description,
                   'img': item.img,
                   'date': item.date,
-                  'rating': item.rating,
+                  'pageCount': item.pageCount,
                   'downloadUrl': item.downloadUrl
                 });
 
@@ -129,13 +129,13 @@ class _$BookDao extends BookDao {
   Future<List<BookModel>> getFavoriteBooks() async {
     return _queryAdapter.queryList('SELECT * FROM book',
         mapper: (Map<String, Object?> row) => BookModel(
-            id: row['id'] as int,
+            id: row['id'] as String,
             author: row['author'] as String,
             title: row['title'] as String,
             description: row['description'] as String,
             img: row['coverUrl'] as String,
             date: row['date'] as String,
-            rating: row['rating'] as int,
+            pageCount: row['pageCount'] as int,
             downloadUrl: row['downloadUrl'] as String));
   }
 

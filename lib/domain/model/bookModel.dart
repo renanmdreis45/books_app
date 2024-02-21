@@ -5,13 +5,13 @@ BookModel bookModelFromJson(String str) => BookModel.fromJson(json.decode(str));
 String bookModelToJson(BookModel data) => json.encode(data.toJson());
 
 class BookModel {
-  int id;
+  String id;
   String title;
   String author;
   String description;
   String img;
   String date;
-  int rating;
+  int pageCount;
   String downloadUrl;
 
   BookModel({
@@ -21,7 +21,7 @@ class BookModel {
     required this.description,
     required this.img,
     required this.date,
-    required this.rating,
+    required this.pageCount,
     required this.downloadUrl,
   });
 
@@ -31,11 +31,11 @@ class BookModel {
         id: json["id"],
         title: json["volumeInfo"]["title"],
         author: json["volumeInfo"]["authors"][0],
-        description: json["description"],
-        img: json["imageLinks"]["thumbnail"],
-        date: json["publishedDate"],
-        rating: json["averageRating"],
-        downloadUrl: json["download_url"],
+        description: json["volumeInfo"]["description"],
+        img: json["volumeInfo"]["imageLinks"]["thumbnail"],
+        date: json["volumeInfo"]["publishedDate"],
+        pageCount: json["volumeInfo"]["pageCount"] ?? 0,
+        downloadUrl: json["accessInfo"]["epub"]["acsTokenLink"] ?? "",
       );
 
   Map<String, dynamic> toJson() => {
@@ -45,7 +45,7 @@ class BookModel {
         "description": description,
         "img": img,
         "date": date,
-        "rating": rating,
+        "pageCount": pageCount,
         "downloadUrl": downloadUrl,
       };
 }
