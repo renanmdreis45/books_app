@@ -1,5 +1,6 @@
+import 'package:books_app/core/constants/colors.dart';
+import 'package:books_app/core/constants/i18n.dart';
 import 'package:books_app/presentation/widgets/all_books.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class BooksView extends StatefulWidget {
@@ -27,11 +28,11 @@ class _BooksView extends State<BooksView> {
       toolbarHeight: 70,
       title: const Center(
           child: Text(
-        'Flutter Ebook App',
+        AppLanguage.appBarTitle,
         style: TextStyle(
-            color: Colors.white, fontSize: 28, fontWeight: FontWeight.w700),
+            color: AppColors.beige, fontSize: 28, fontWeight: FontWeight.w700),
       )),
-      backgroundColor: Colors.orangeAccent,
+      backgroundColor: AppColors.mainDark,
     );
   }
 }
