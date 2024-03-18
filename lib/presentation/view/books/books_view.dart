@@ -13,14 +13,46 @@ class BooksView extends StatefulWidget {
 }
 
 class _BooksView extends State<BooksView> {
+  int _selectedIndex = 0;
+
   @override
   void initState() {
     super.initState();
   }
 
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: _buildAppBar(), body: const AllBooksWidget());
+    return Scaffold(
+      appBar: _buildAppBar(),
+      body: const AllBooksWidget(),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: AppColors.mainDark,
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.home,
+                size: 25,
+              ),
+              label: AppLanguage.bottomNavigationBarLabelHome),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.favorite,
+                size: 25,
+              ),
+              label: AppLanguage.bottomNavigationBarLabelFavorites)
+        ],
+        selectedItemColor: AppColors.beige,
+        unselectedItemColor: AppColors.white,
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
+      ),
+    );
   }
 
   _buildAppBar() {

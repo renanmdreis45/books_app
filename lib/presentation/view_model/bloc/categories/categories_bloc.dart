@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:books_app/presentation/utils/utils.dart';
+import 'package:books_app/core/utils/utils.dart';
 
 part 'categories_state.dart';
 part 'categories_event.dart';
