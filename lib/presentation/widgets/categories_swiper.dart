@@ -36,10 +36,10 @@ class _CategoriesSwiper extends State<CategoriesSwiper> {
           return Container(
             width: double.infinity,
             height: double.infinity,
-            decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(4)),
+            decoration: BoxDecoration(
+                borderRadius: const BorderRadius.all(Radius.circular(4)),
                 image: DecorationImage(
-              image: AssetImage("assets/fiction.png"),
+              image: AssetImage('assets/${categories[index]}.png'),
             fit: BoxFit.cover)),
           );
         },
