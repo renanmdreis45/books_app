@@ -1,6 +1,7 @@
 import 'package:books_app/core/constants/colors.dart';
 import 'package:books_app/core/constants/i18n.dart';
 import 'package:books_app/presentation/widgets/all_books.dart';
+import 'package:books_app/presentation/widgets/custom_search_delegate.dart';
 import 'package:flutter/material.dart';
 
 class BooksView extends StatefulWidget {
@@ -58,6 +59,13 @@ class _BooksView extends State<BooksView> {
   _buildAppBar() {
     return AppBar(
       toolbarHeight: 70,
+      actions: [
+        IconButton(
+            onPressed: () {
+              showSearch(context: context, delegate: CustomSearchDelegate());
+            },
+            icon: const Icon(Icons.search))
+      ],
       title: const Center(
           child: Text(
         AppLanguage.appBarTitle,
