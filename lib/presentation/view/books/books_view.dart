@@ -1,5 +1,6 @@
 import 'package:books_app/core/constants/colors.dart';
 import 'package:books_app/core/constants/i18n.dart';
+import 'package:books_app/presentation/view/home/home_view.dart';
 import 'package:books_app/presentation/widgets/all_books.dart';
 import 'package:books_app/presentation/widgets/custom_search_delegate.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +32,7 @@ class _BooksView extends State<BooksView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(),
-      body: const AllBooksWidget(),
+      body: const HomeView(),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: AppColors.mainDark,
         items: const <BottomNavigationBarItem>[
@@ -64,7 +65,11 @@ class _BooksView extends State<BooksView> {
             onPressed: () {
               showSearch(context: context, delegate: CustomSearchDelegate());
             },
-            icon: const Icon(Icons.search))
+            icon: const Icon(
+              Icons.search,
+              size: 36,
+              color: AppColors.white,
+            ))
       ],
       title: const Center(
           child: Text(

@@ -1,4 +1,6 @@
+import 'package:books_app/core/constants/colors.dart';
 import 'package:books_app/presentation/widgets/categories_swiper.dart';
+import 'package:books_app/presentation/widgets/my_library.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatefulWidget {
@@ -12,10 +14,12 @@ class HomeView extends StatefulWidget {
 class _HomeView extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      children: [
-        CategoriesSwiper()
-      ],
+    return const SingleChildScrollView(
+      child: Stack(
+        children: [
+          MyLibrary(),
+        ],
+      ),
     );
   }
 }
