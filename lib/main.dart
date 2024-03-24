@@ -1,3 +1,4 @@
+import 'package:books_app/core/constants/colors.dart';
 import 'package:books_app/injection_container.dart';
 import 'package:books_app/presentation/view/books/books_view.dart';
 import 'package:books_app/presentation/view_model/bloc/books/books_bloc.dart';
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
         title: 'Books App',
         theme: ThemeData(
           useMaterial3: true,
+          scaffoldBackgroundColor: AppColors.mainDark,
         ),
         home: const BooksView(),
       ),
