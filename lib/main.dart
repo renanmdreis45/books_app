@@ -1,6 +1,8 @@
 import 'package:books_app/core/constants/colors.dart';
 import 'package:books_app/injection_container.dart';
 import 'package:books_app/presentation/view/books/books_view.dart';
+import 'package:books_app/presentation/view/favorites/favorites_view.dart';
+import 'package:books_app/presentation/view/home/home_view.dart';
 import 'package:books_app/presentation/view_model/bloc/books/books_bloc.dart';
 import 'package:books_app/presentation/view_model/bloc/books/books_event.dart';
 import 'package:flutter/material.dart';
@@ -27,6 +29,10 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
           scaffoldBackgroundColor: AppColors.mainDark,
         ),
+        routes: {
+          '/home': (context) => const HomeView(),
+          '/favorites': (context) => const FavoritesView()
+        },
         home: const BooksView(),
       ),
     );

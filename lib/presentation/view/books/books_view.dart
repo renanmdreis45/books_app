@@ -1,5 +1,6 @@
 import 'package:books_app/core/constants/colors.dart';
 import 'package:books_app/core/constants/i18n.dart';
+import 'package:books_app/presentation/view/favorites/favorites_view.dart';
 import 'package:books_app/presentation/view/home/home_view.dart';
 import 'package:books_app/presentation/widgets/all_books.dart';
 import 'package:books_app/presentation/widgets/custom_search_delegate.dart';
@@ -28,11 +29,16 @@ class _BooksView extends State<BooksView> {
     });
   }
 
+  final screens = [
+    const HomeView(),
+    const FavoritesView(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(),
-      body: const HomeView(),
+      body: screens[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: AppColors.mainDark,
         items: const <BottomNavigationBarItem>[
