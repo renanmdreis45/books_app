@@ -1,5 +1,8 @@
 import 'package:books_app/core/constants/colors.dart';
 import 'package:books_app/core/constants/i18n.dart';
+import 'package:books_app/presentation/view/books/books_view.dart';
+import 'package:books_app/presentation/view/favorites/favorites_view.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -22,43 +25,53 @@ class _MyLibrary extends State<MyLibrary> {
       height: 150,
       color: AppColors.mainDark,
       padding: const EdgeInsets.all(10),
-      child: const Row(children: [
+      child: Row(children: [
         Center(
           child: Column(
             children: [
-              Text(
+              const Text(
                 AppLanguage.labelMyLibrary,
                 style: TextStyle(
                   color: AppColors.beige,
                   fontSize: 16,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
-              Expanded(
-                child: Card(
-                  color: AppColors.secondaryDark,
-                  child: Padding(
-                    padding: EdgeInsets.all(6),
-                    child: Column(children: [
-                      Text(
-                        AppLanguage.labelMyFavorites,
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: AppColors.beige,
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) {
+                    return BooksView(
+                      initialIndex: 1,
+                    );
+                  }));
+                },
+                child: const Expanded(
+                  child: Card(
+                    color: AppColors.secondaryDark,
+                    child: Padding(
+                      padding: EdgeInsets.all(6),
+                      child: Column(children: [
+                        Text(
+                          AppLanguage.labelMyFavorites,
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: AppColors.beige,
+                          ),
+                          maxLines: 2,
                         ),
-                        maxLines: 2,
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Icon(
-                        Icons.star,
-                        color: AppColors.beige,
-                        size: 40,
-                      ),
-                    ]),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Icon(
+                          Icons.star,
+                          color: AppColors.beige,
+                          size: 40,
+                        ),
+                      ]),
+                    ),
                   ),
                 ),
               ),

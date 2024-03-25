@@ -33,7 +33,9 @@ class MyApp extends StatelessWidget {
           '/home': (context) => const HomeView(),
           '/favorites': (context) => const FavoritesView()
         },
-        home: const BooksView(),
+        home: BooksView(
+          initialIndex: 0,
+        ),
       ),
     );
   }

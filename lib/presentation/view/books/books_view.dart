@@ -8,8 +8,9 @@ import 'package:flutter/material.dart';
 
 class BooksView extends StatefulWidget {
   static String route = "/books";
+  final int initialIndex;
 
-  const BooksView({Key? key}) : super(key: key);
+  BooksView({Key? key, required this.initialIndex}) : super(key: key);
 
   @override
   State<BooksView> createState() => _BooksView();
@@ -21,6 +22,11 @@ class _BooksView extends State<BooksView> {
   @override
   void initState() {
     super.initState();
+    if (widget.initialIndex == 1) {
+      setState(() {
+        _selectedIndex = 1;
+      });
+    }
   }
 
   void _onItemTapped(int index) {
