@@ -14,13 +14,12 @@ class BooksRepositoryImpl implements BooksRepository {
 
   BooksRepositoryImpl(this._booksService, this._appDatabase);
 
-
   @override
   Future<DataState<List<BookModel>>> getBooks() async {
     try {
       final httpResponse =
           await _booksService.getBooks(q: q, download: download, key: key);
-
+      print(httpResponse);
       if (httpResponse.response.statusCode == HttpStatus.ok) {
         return DataSucess(httpResponse.data);
       } else {

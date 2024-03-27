@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
 
-class AllBooksWidget extends StatelessWidget {
-  const AllBooksWidget({
+class AllBooks extends StatelessWidget {
+  const AllBooks({
     Key? key,
   }) : super(key: key);
 

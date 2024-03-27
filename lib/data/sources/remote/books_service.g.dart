@@ -19,14 +19,14 @@ class _BooksService implements BooksService {
 
     final _result = await _dio.get(baseUrl ?? _dio.options.baseUrl,
         queryParameters: queryParameters);
-
-    List<BookModel> value = _result.data!['items']
-        .map<BookModel>(
-            (dynamic i) => BookModel.fromJson(i as Map<String, dynamic>))
-        .toList();
     
+    List<BookModel> value = _result.data!['items'].map<BookModel>((dynamic i) {
+      print(BookModel.fromJson(i));
+      return BookModel.fromJson(i as Map<String, dynamic>);
+    }).toList();
+    print(value);
     final httpResponse = HttpResponse(value, _result);
-    
+
     return httpResponse;
   }
 }

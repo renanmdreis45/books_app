@@ -29,11 +29,13 @@ class BookModel {
 
   factory BookModel.fromJson(Map<String, dynamic> json) => BookModel(
         id: json["id"],
-        title: json["volumeInfo"]["title"],
-        author: json["volumeInfo"]["authors"][0],
-        description: json["volumeInfo"]["description"],
-        img: json["volumeInfo"]["imageLinks"]["thumbnail"],
-        date: json["volumeInfo"]["publishedDate"],
+        title: json["volumeInfo"]["title"] ?? "",
+        author: json["volumeInfo"].containsKey("authors")
+            ? json["volumeInfo"]["authors"][0]
+            : "",
+        description: json["volumeInfo"]["description"] ?? "",
+        img: json["volumeInfo"]["imageLinks"]["thumbnail"] ?? "",
+        date: json["volumeInfo"]["publishedDate"] ?? "",
         pageCount: json["volumeInfo"]["pageCount"] ?? 0,
         downloadUrl: json["accessInfo"]["epub"]["acsTokenLink"] ?? "",
       );

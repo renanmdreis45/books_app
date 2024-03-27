@@ -9,6 +9,7 @@ class GetAllBooks {
 
   Future<DataState<List<BookModel>>> call() async {
     final list = await _repository.getBooks();
+    
     return list;
   }
 }
