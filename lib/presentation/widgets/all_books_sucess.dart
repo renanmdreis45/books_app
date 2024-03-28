@@ -21,24 +21,9 @@ class AllBooksSuccessWidget extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            Row(
-              children: [
-                Container(
-                    padding: const EdgeInsets.all(4.0),
-                    width: 100.0,
-                    child: const Text(
-                      "Recently Added",
-                      style: TextStyle(fontSize: 18),
-                    )),
-              ],
-            ),
-            const SizedBox(
-              height: 20,
-            ),
             Expanded(
               child: ListView.separated(
                 shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
                 itemCount: books.length,
                 itemBuilder: (context, index) {
                   BookModel booksCurrent = books[index];
