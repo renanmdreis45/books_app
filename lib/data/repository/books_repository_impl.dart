@@ -19,7 +19,7 @@ class BooksRepositoryImpl implements BooksRepository {
     try {
       final httpResponse =
           await _booksService.getBooks(q: q, download: download, key: key);
-      print(httpResponse);
+      
       if (httpResponse.response.statusCode == HttpStatus.ok) {
         return DataSucess(httpResponse.data);
       } else {

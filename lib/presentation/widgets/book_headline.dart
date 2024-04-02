@@ -28,44 +28,6 @@ class BooksHeadline extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          // Expanded(
-          //     child: Padding(
-          //   padding: const EdgeInsets.only(top: 10.0),
-          //   child:
-          //       Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          //     Text(author ?? "Autor desconhecido"),
-          //     const SizedBox(
-          //       height: 3,
-          //     ),
-          //     Padding(
-          //       padding: const EdgeInsets.only(right: 10),
-          //       child: Row(
-          //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //         children: [
-          //           Expanded(
-          //             child: Text(description ?? "Livro sem descrição"),
-          //           ),
-          //         ],
-          //       ),
-          //     ),
-          //     const SizedBox(
-          //       height: 6,
-          //     ),
-          //     Padding(
-          //       padding: const EdgeInsets.only(right: 10),
-          //       child: Row(
-          //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //         children: [
-          //           Text('${pageCount}'),
-          //           const SizedBox(
-          //             width: 3,
-          //           ),
-          //           Text(date ?? "Data Indisponível"),
-          //         ],
-          //       ),
-          //     ),
-          //   ]),
-          // ))
         ]),
       ),
     );

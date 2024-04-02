@@ -1,3 +1,4 @@
+import 'package:books_app/core/constants/colors.dart';
 import 'package:books_app/domain/model/bookModel.dart';
 import 'package:books_app/presentation/widgets/book_headline.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,7 @@ class AllBooksSuccessWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
+        color: AppColors.mainDark,
         height:
             ((100 * books.length) + MediaQuery.of(context).size.width) + 24.0,
         child: Column(

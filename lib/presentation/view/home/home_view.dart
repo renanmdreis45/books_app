@@ -1,7 +1,7 @@
 import 'package:books_app/core/constants/colors.dart';
 import 'package:books_app/presentation/widgets/all_books.dart';
 import 'package:books_app/presentation/widgets/all_books_sucess.dart';
-import 'package:books_app/presentation/widgets/books_swiper.dart';
+import 'package:books_app/presentation/widgets/all_books_swiper.dart';
 import 'package:books_app/presentation/widgets/my_library.dart';
 import 'package:flutter/material.dart';
 
@@ -23,7 +23,7 @@ class _HomeView extends State<HomeView> {
           SizedBox(
             height: 30,
           ),
-          AllBooks()
+          AllBooksSwiper()
         ],
       ),
     );
