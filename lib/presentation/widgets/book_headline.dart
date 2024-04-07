@@ -21,8 +21,8 @@ class BooksHeadline extends StatelessWidget {
         elevation: 5,
         child: Column(children: [
           Image(
-            height: MediaQuery.of(context).size.height * 0.70,
-            width: 140,
+            height: MediaQuery.of(context).size.height * 0.10,
+            width: MediaQuery.of(context).size.width,
             image: NetworkImage(img ?? ""),
           ),
           const SizedBox(
@@ -32,9 +32,9 @@ class BooksHeadline extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(10),
               child: Text(
-                date ?? "",
+                date?.split('-')[0] ?? "",
                 style: TextStyle(
-                  color: AppColors.beige,
+                  color: AppColors.white,
                   fontSize: 16,
                 ),
               ),

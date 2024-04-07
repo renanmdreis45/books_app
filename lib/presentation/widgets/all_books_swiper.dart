@@ -39,7 +39,7 @@ class _BooksSwiper extends State<AllBooksSwiper> {
   ) {
     return Container(
       color: AppColors.mainDark,
-      height: ((100 * books.length) + MediaQuery.of(context).size.width) + 24.0,
+      height: 200,
       child: Column(children: [
         const Text(AppLanguage.allBooksSwiperHeader),
         const SizedBox(
