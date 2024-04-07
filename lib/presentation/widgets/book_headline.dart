@@ -28,6 +28,18 @@ class BooksHeadline extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
+          Container(
+            child: Padding(
+              padding: const EdgeInsets.all(10),
+              child: Text(
+                date ?? "",
+                style: TextStyle(
+                  color: AppColors.beige,
+                  fontSize: 16,
+                ),
+              ),
+            ),
+          )
         ]),
       ),
     );

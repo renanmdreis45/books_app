@@ -24,7 +24,7 @@ class _BooksSwiper extends State<AllBooksSwiper> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuiAllder<BooksBloc, BookState>(builder: (context, state) {
+    return BlocBuilder<BooksBloc, BookState>(builder: (context, state) {
       if (state is BooksDone) {
         return _booksSwiper(
           state.books ?? [],
