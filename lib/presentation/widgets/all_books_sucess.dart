@@ -16,6 +16,7 @@ class AllBooksSuccessWidget extends StatelessWidget {
     return SingleChildScrollView(
       child: Container(
         color: AppColors.mainDark,
+        width: 100,
         height:
             ((100 * books.length) + MediaQuery.of(context).size.width) + 24.0,
         child: Column(
@@ -30,11 +31,11 @@ class AllBooksSuccessWidget extends StatelessWidget {
                 itemBuilder: (context, index) {
                   BookModel booksCurrent = books[index];
                   return BooksHeadline(
+                      booksCurrent.title,
                       booksCurrent.author,
                       booksCurrent.description,
                       booksCurrent.img,
-                      booksCurrent.date,
-                      booksCurrent.pageCount);
+                      booksCurrent.date);
                 },
                 separatorBuilder: (_, __) => const SizedBox(
                   height: 20.0,

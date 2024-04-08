@@ -39,7 +39,8 @@ class _BooksSwiper extends State<AllBooksSwiper> {
   ) {
     return Container(
       color: AppColors.mainDark,
-      height: 200,
+      height: 220,
+      width: MediaQuery.of(context).size.width,
       child: Column(children: [
         const Text(AppLanguage.allBooksSwiperHeader),
         const SizedBox(
@@ -52,11 +53,11 @@ class _BooksSwiper extends State<AllBooksSwiper> {
               shrinkWrap: true,
               itemBuilder: (BuildContext context, int index) {
                 return BooksHeadline(
+                    books[index].title,
                     books[index].author,
                     books[index].description,
                     books[index].img,
-                    books[index].date,
-                    books[index].pageCount);
+                    books[index].date);
               },
               separatorBuilder: (BuildContext context, int index) =>
                   const SizedBox(
