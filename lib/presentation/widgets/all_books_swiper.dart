@@ -39,14 +39,19 @@ class _BooksSwiper extends State<AllBooksSwiper> {
   ) {
     return Container(
       color: AppColors.mainDark,
-      height: 220,
+      height: 240,
       width: MediaQuery.of(context).size.width,
-      child: Column(children: [
-        const Text(AppLanguage.allBooksSwiperHeader),
+      margin: EdgeInsets.only(left: 25),
+      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        const Text(
+          AppLanguage.allBooksSwiperHeader,
+          style: TextStyle(color: AppColors.beige, fontSize: 18),
+        ),
         const SizedBox(
-          height: 10,
+          height: 20,
         ),
         Expanded(
+          flex: 2,
           child: ListView.separated(
               scrollDirection: Axis.horizontal,
               itemCount: books.length,

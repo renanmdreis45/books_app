@@ -17,11 +17,11 @@ class _HomeView extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return const SingleChildScrollView(
-      child: Stack(
+      child: Column(
         children: [
           MyLibrary(),
           SizedBox(
-            height: 30,
+            height: 60,
           ),
           AllBooksSwiper()
         ],
