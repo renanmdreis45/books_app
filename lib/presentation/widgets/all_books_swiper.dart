@@ -39,9 +39,9 @@ class _BooksSwiper extends State<AllBooksSwiper> {
   ) {
     return Container(
       color: AppColors.mainDark,
-      height: 240,
+      height: 340,
       width: MediaQuery.of(context).size.width,
-      margin: EdgeInsets.only(left: 25),
+      margin: const EdgeInsets.only(left: 25),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         const Text(
           AppLanguage.allBooksSwiperHeader,
@@ -51,7 +51,6 @@ class _BooksSwiper extends State<AllBooksSwiper> {
           height: 20,
         ),
         Expanded(
-          flex: 2,
           child: ListView.separated(
               scrollDirection: Axis.horizontal,
               itemCount: books.length,
