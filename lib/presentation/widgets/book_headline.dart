@@ -6,13 +6,13 @@ class BooksHeadline extends StatelessWidget {
   final String? author;
   final String? description;
   final String? img;
-  final String? date;
+  final String date;
 
   BooksHeadline(
       this.title, this.author, this.description, this.img, this.date);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) {                                
     return Card(
       margin: const EdgeInsets.only(left: 10, right: 5, bottom: 10),
       color: AppColors.shadowDark,
@@ -40,7 +40,7 @@ class BooksHeadline extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(10),
             child: Text(
-              date?.split('-')[0] ?? "",
+              date.isNotEmpty ? date.split('-')[0] : "Undefined Date",
               style: const TextStyle(
                 color: AppColors.white,
                 fontSize: 16,
