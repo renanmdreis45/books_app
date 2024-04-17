@@ -1,4 +1,6 @@
 import 'package:books_app/core/constants/colors.dart';
+import 'package:books_app/core/constants/i18n.dart';
+import 'package:books_app/presentation/view/details/details_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +22,9 @@ class BooksHeadline extends StatelessWidget {
       child: InkWell(
         splashColor: AppColors.beige.withAlpha(30),
         onTap: () {
-          debugPrint('Card tapped');
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) =>
+                  DetailsView(title, author, description, img, date)));
         },
         child: Padding(
           padding: const EdgeInsets.all(5.0),
@@ -56,7 +60,9 @@ class BooksHeadline extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(5),
                   child: Text(
-                    date.isNotEmpty ? date.split('-')[0] : "Undefined Date",
+                    date.isNotEmpty
+                        ? date.split('-')[0]
+                        : AppLanguage.undefinedDate,
                     style: const TextStyle(
                       color: AppColors.white,
                       fontSize: 14,
