@@ -22,9 +22,12 @@ class BooksHeadline extends StatelessWidget {
       child: InkWell(
         splashColor: AppColors.beige.withAlpha(30),
         onTap: () {
-          Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) =>
-                  DetailsView(title, author, description, img, date)));
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) =>
+                    DetailsView(title, author, description, img, date)),
+          );
         },
         child: Padding(
           padding: const EdgeInsets.all(5.0),
