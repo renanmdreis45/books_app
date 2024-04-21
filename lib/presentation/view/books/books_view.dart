@@ -72,6 +72,7 @@ class _BooksView extends State<BooksView> {
   _buildAppBar() {
     return AppBar(
       toolbarHeight: 70,
+      leadingWidth: 20,
       actions: [
         IconButton(
             onPressed: () {
@@ -83,12 +84,17 @@ class _BooksView extends State<BooksView> {
               color: AppColors.white,
             ))
       ],
-      title: const Center(
-          child: Text(
-        AppLanguage.appBarTitle,
-        style: TextStyle(
-            color: AppColors.beige, fontSize: 28, fontWeight: FontWeight.w700),
-      )),
+      title: Transform(
+        transform: Matrix4.translationValues(20.0, 0.0, 0.0),
+        child: const Center(
+            child: Text(
+          AppLanguage.appBarTitle,
+          style: TextStyle(
+              color: AppColors.beige,
+              fontSize: 28,
+              fontWeight: FontWeight.w700),
+        )),
+      ),
       backgroundColor: AppColors.mainDark,
     );
   }
