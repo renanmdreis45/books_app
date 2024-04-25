@@ -14,11 +14,12 @@ class AllBooks extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<BooksBloc, BookState>(
       builder: (context, state) {
-        
         if (state is BooksDone) {
           return AllBooksSuccessWidget(
             books: state.books ?? [],
           );
+        } else if (state is BooksLoading) {
+          return const CircularProgressIndicator();
         }
         return const SizedBox();
       },
