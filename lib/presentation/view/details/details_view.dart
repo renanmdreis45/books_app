@@ -43,7 +43,7 @@ class DetailsView extends StatelessWidget {
                       child: Text(
                         title ?? "",
                         style: const TextStyle(
-                            color: AppColors.white, fontSize: 20),
+                            color: AppColors.white, fontSize: 22),
                       ),
                     ),
                     const SizedBox(
@@ -53,33 +53,10 @@ class DetailsView extends StatelessWidget {
                       child: Text(
                         author ?? "",
                         style: const TextStyle(
-                          color: AppColors.white,
-                          fontSize: 16,
+                          color: AppColors.beige,
+                          fontSize: 18,
                         ),
                       ),
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              Icons.download,
-                              color: AppColors.white,
-                              size: 25,
-                            )),
-                        IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              Icons.star_border_rounded,
-                              color: AppColors.white,
-                              size: 25,
-                            )),
-                      ],
                     ),
                     const SizedBox(
                       height: 5,
@@ -94,16 +71,42 @@ class DetailsView extends StatelessWidget {
                     const SizedBox(
                       height: 5,
                     ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        IconButton(
+                            onPressed: () {},
+                            icon: const Icon(
+                              Icons.download,
+                              color: AppColors.white,
+                              size: 30,
+                            )),
+                        IconButton(
+                            onPressed: () {},
+                            icon: const Icon(
+                              Icons.star_border_rounded,
+                              color: AppColors.white,
+                              size: 30,
+                            )),
+                      ],
+                    ),   
+                    const SizedBox(
+                      height: 5,
+                    ),
                     Expanded(
                       child: Center(
                         child: SingleChildScrollView(
                           scrollDirection: Axis.vertical,
-                          child: Text(
-                            description ?? "",
-                            style: const TextStyle(
-                                color: AppColors.white,
-                                fontSize: 16,
-                                overflow: TextOverflow.clip),
+                          child: Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Text(
+                              description ?? "",
+                              style: const TextStyle(
+                                  color: AppColors.white,
+                                  fontSize: 16,
+                                  overflow: TextOverflow.clip),
+                            ),
                           ),
                         ),
                       ),
