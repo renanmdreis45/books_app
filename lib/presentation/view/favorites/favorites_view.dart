@@ -1,3 +1,4 @@
+import 'package:books_app/presentation/widgets/favorite_books.dart';
 import 'package:flutter/material.dart';
 
 class FavoritesView extends StatefulWidget {
@@ -16,9 +17,7 @@ class _FavoritesView extends State<FavoritesView> {
       margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
       width: double.maxFinite,
       height: MediaQuery.of(context).size.height,
-      child: ListView.builder(itemBuilder: (context, index) {
-        return
-      }),
+      child: const FavoriteBooks(),
     );
   }
 }

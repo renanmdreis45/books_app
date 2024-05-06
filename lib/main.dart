@@ -5,6 +5,9 @@ import 'package:books_app/presentation/view/favorites/favorites_view.dart';
 import 'package:books_app/presentation/view/home/home_view.dart';
 import 'package:books_app/presentation/view_model/bloc/books/books_bloc.dart';
 import 'package:books_app/presentation/view_model/bloc/books/books_event.dart';
+import 'package:books_app/presentation/view_model/bloc/favorites/favorites_bloc.dart';
+import 'package:books_app/presentation/view_model/bloc/favorites/favorites_event.dart';
+import 'package:books_app/presentation/widgets/favorite_books.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -20,8 +23,14 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<BooksBloc>(
-      create: (context) => sl()..add(const GetBooks()),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<BooksBloc>(
+          create: (context) => sl()..add(const GetBooks()),
+        ),
+        BlocProvider<FavoritesBloc>(
+            create: (context) => sl()..add(const GetFavorites()))
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Books App',
