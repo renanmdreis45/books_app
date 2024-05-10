@@ -5,13 +5,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class BooksHeadline extends StatelessWidget {
+  final String? id;
   final String? title;
   final String? author;
   final String? description;
   final String? img;
   final String date;
 
-  BooksHeadline(this.title, this.author, this.description, this.img, this.date);
+  BooksHeadline(this.id, this.title, this.author, this.description, this.img, this.date);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,7 @@ class BooksHeadline extends StatelessWidget {
             context,
             MaterialPageRoute(
                 builder: (context) =>
-                    DetailsView(title, author, description, img, date)),
+                    DetailsView(id, title, author, description, img, date)),
           );
         },
         child: Padding(
