@@ -60,6 +60,7 @@ class _BooksSwiper extends State<AllBooksSwiper> {
               shrinkWrap: true,
               itemBuilder: (BuildContext context, int index) {
                 return BooksHeadline(
+                    favorites[index].id,
                     favorites[index].title,
                     favorites[index].author,
                     favorites[index].description,

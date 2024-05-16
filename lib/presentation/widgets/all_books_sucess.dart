@@ -31,6 +31,7 @@ class AllBooksSuccessWidget extends StatelessWidget {
                 itemBuilder: (context, index) {
                   BookModel booksCurrent = books[index];
                   return BooksHeadline(
+                      booksCurrent.id,
                       booksCurrent.title,
                       booksCurrent.author,
                       booksCurrent.description,
