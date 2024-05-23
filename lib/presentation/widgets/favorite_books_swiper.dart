@@ -65,7 +65,9 @@ class _BooksSwiper extends State<AllBooksSwiper> {
                     favorites[index].author,
                     favorites[index].description,
                     favorites[index].img,
-                    favorites[index].date);
+                    favorites[index].date,
+                    favorites[index].pageCount,
+                    favorites[index].downloadUrl);
               },
               separatorBuilder: (BuildContext context, int index) =>
                   const SizedBox(

@@ -36,7 +36,9 @@ class AllBooksSuccessWidget extends StatelessWidget {
                       booksCurrent.author,
                       booksCurrent.description,
                       booksCurrent.img,
-                      booksCurrent.date);
+                      booksCurrent.date,
+                      booksCurrent.pageCount,
+                      booksCurrent.downloadUrl);
                 },
                 separatorBuilder: (_, __) => const SizedBox(
                   height: 20.0,

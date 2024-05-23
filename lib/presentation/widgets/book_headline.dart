@@ -11,8 +11,11 @@ class BooksHeadline extends StatelessWidget {
   final String? description;
   final String? img;
   final String date;
+  final int pageCount;
+  final String? downloadUrl;
 
-  BooksHeadline(this.id, this.title, this.author, this.description, this.img, this.date);
+  BooksHeadline(
+      this.id, this.title, this.author, this.description, this.img, this.date, this.pageCount, this.downloadUrl);
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +29,8 @@ class BooksHeadline extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) =>
-                    DetailsView(id, title, author, description, img, date)),
+                builder: (context) => DetailsView(id, title, author,
+                    description, img, date, pageCount, downloadUrl)),
           );
         },
         child: Padding(

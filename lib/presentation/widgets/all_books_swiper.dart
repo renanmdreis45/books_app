@@ -62,7 +62,9 @@ class _BooksSwiper extends State<AllBooksSwiper> {
                     books[index].author,
                     books[index].description,
                     books[index].img,
-                    books[index].date);
+                    books[index].date,
+                    books[index].pageCount,
+                    books[index].downloadUrl);
               },
               separatorBuilder: (BuildContext context, int index) =>
                   const SizedBox(
