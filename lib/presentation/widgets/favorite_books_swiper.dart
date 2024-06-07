@@ -3,8 +3,6 @@ import 'package:books_app/core/constants/i18n.dart';
 import 'package:books_app/domain/model/bookModel.dart';
 import 'package:books_app/presentation/view_model/bloc/books/books_bloc.dart';
 import 'package:books_app/presentation/view_model/bloc/books/books_state.dart';
-import 'package:books_app/presentation/view_model/bloc/favorites/favorites_bloc.dart';
-import 'package:books_app/presentation/view_model/bloc/favorites/favorites_state.dart';
 import 'package:books_app/presentation/widgets/book_headline.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -26,11 +24,11 @@ class _BooksSwiper extends State<AllBooksSwiper> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<FavoritesBloc, FavoritesState>(
+    return BlocBuilder<BooksBloc, BookState>(
         builder: (context, state) {
       if (state is BooksDone) {
         return _booksSwiper(
-          state.favorites ?? [],
+          state.books ?? [],
         );
       }
       return const SizedBox();

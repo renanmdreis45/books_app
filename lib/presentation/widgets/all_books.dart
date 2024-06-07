@@ -3,7 +3,6 @@ import 'package:books_app/presentation/view_model/bloc/books/books_state.dart';
 import 'package:books_app/presentation/widgets/all_books_sucess.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:logger/logger.dart';
 
 class AllBooks extends StatelessWidget {
   const AllBooks({

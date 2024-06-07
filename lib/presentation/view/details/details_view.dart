@@ -1,13 +1,8 @@
 import 'package:books_app/core/constants/colors.dart';
 import 'package:books_app/core/constants/i18n.dart';
-import 'package:books_app/domain/model/bookModel.dart';
-import 'package:books_app/presentation/view_model/bloc/favorites/favorites_bloc.dart';
-import 'package:books_app/presentation/view_model/bloc/favorites/favorites_event.dart';
-import 'package:books_app/presentation/view_model/bloc/favorites/favorites_state.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DetailsView extends StatelessWidget {
   final String? id;
@@ -26,19 +21,7 @@ class DetailsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(context),
-      body: BlocBuilder<FavoritesBloc, FavoritesState>(
-        builder: (context, state) {
-          bool isFavorite = false;
-          
-          if (state.favorites?.length != 0) {
-            final favoriteIds = state.favorites!.map((item) => item.id);
-
-            if (favoriteIds.contains(id)) {
-              isFavorite = true;
-            }
-          }
-
-          return SingleChildScrollView(
+      body: SingleChildScrollView(
             scrollDirection: Axis.vertical,
             padding: const EdgeInsets.all(5.0),
             child: Container(
@@ -105,30 +88,7 @@ class DetailsView extends StatelessWidget {
                                 )),
                             IconButton(
                                 onPressed: () {
-                                  if (!isFavorite) {
-                                    print("teste");
-                                    context.read<FavoritesBloc>().add(AddBook(
-                                        BookModel(
-                                            id: id!,
-                                            title: title!,
-                                            author: author!,
-                                            description: description!,
-                                            img: img!,
-                                            date: date,
-                                            pageCount: pageCount,
-                                            downloadUrl: downloadUrl!)));
-                                  } else {
-                                    context.read<FavoritesBloc>().add(
-                                        RemoveFavorite(BookModel(
-                                            id: id!,
-                                            title: title!,
-                                            author: author!,
-                                            description: description!,
-                                            img: img!,
-                                            date: date,
-                                            pageCount: pageCount,
-                                            downloadUrl: downloadUrl!)));
-                                  }
+                                  
                                 },
                                 icon: const Icon(
                                   Icons.star_border_rounded,
@@ -163,9 +123,7 @@ class DetailsView extends StatelessWidget {
                 ],
               ),
             ),
-          );
-        },
-      ),
+          ),
     );
   }
 
