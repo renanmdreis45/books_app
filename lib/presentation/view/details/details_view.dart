@@ -19,7 +19,8 @@ class DetailsView extends StatelessWidget {
   final int pageCount;
   final String? downloadUrl;
 
-  DetailsView(this.id, this.title, this.author, this.description, this.img, this.date, this.pageCount, this.downloadUrl);
+  DetailsView(this.id, this.title, this.author, this.description, this.img,
+      this.date, this.pageCount, this.downloadUrl);
 
   @override
   Widget build(BuildContext context) {
@@ -29,10 +30,10 @@ class DetailsView extends StatelessWidget {
         builder: (context, state) {
           bool isFavorite = false;
           
-          if(state.favorites!.isNotEmpty) {
-            final favoriteIds = state.favorites!.map((item) => item.id );
+          if (state.favorites?.length != 0) {
+            final favoriteIds = state.favorites!.map((item) => item.id);
 
-            if(favoriteIds.contains(id)) {
+            if (favoriteIds.contains(id)) {
               isFavorite = true;
             }
           }
@@ -104,12 +105,29 @@ class DetailsView extends StatelessWidget {
                                 )),
                             IconButton(
                                 onPressed: () {
-                                  if(isFavorite) {
-                                    context.read<FavoritesBloc>().add(AddBook(BookModel(id: id!, title: title!, author: author!, description: description!, img: img!, date: date, pageCount: pageCount, downloadUrl: downloadUrl!)));
+                                  if (!isFavorite) {
+                                    print("teste");
+                                    context.read<FavoritesBloc>().add(AddBook(
+                                        BookModel(
+                                            id: id!,
+                                            title: title!,
+                                            author: author!,
+                                            description: description!,
+                                            img: img!,
+                                            date: date,
+                                            pageCount: pageCount,
+                                            downloadUrl: downloadUrl!)));
                                   } else {
-                                    context
-                                    .read<FavoritesBloc>()
-                                    .add(RemoveFavorite(BookModel(id: id!, title: title!, author: author!, description: description!, img: img!, date: date, pageCount: pageCount, downloadUrl: downloadUrl!)));
+                                    context.read<FavoritesBloc>().add(
+                                        RemoveFavorite(BookModel(
+                                            id: id!,
+                                            title: title!,
+                                            author: author!,
+                                            description: description!,
+                                            img: img!,
+                                            date: date,
+                                            pageCount: pageCount,
+                                            downloadUrl: downloadUrl!)));
                                   }
                                 },
                                 icon: const Icon(
