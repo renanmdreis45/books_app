@@ -1,10 +1,7 @@
 import 'package:books_app/core/constants/colors.dart';
 import 'package:books_app/core/constants/i18n.dart';
 import 'package:books_app/presentation/view/books/books_view.dart';
-import 'package:books_app/presentation/view/favorites/favorites_view.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class MyLibrary extends StatefulWidget {
   const MyLibrary({Key? key}) : super(key: key);

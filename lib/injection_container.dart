@@ -28,7 +28,7 @@ Future<void> initializeDependencies() async {
   sl.registerSingleton<BooksRepository>(BooksRepositoryImpl(sl(), sl()));
 
   //Blocs
-  sl.registerFactory<BooksBloc>(() => BooksBloc(sl()));
+  sl.registerFactory<BooksBloc>(() => BooksBloc(sl(), sl()));
 
   //Use cases
   sl.registerLazySingleton<GetAllBooks>(() => GetAllBooks(repository: sl()));
