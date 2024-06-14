@@ -1,6 +1,7 @@
 import 'package:books_app/core/constants/colors.dart';
 import 'package:books_app/domain/model/bookModel.dart';
 import 'package:books_app/presentation/widgets/book_headline.dart';
+import 'package:books_app/presentation/widgets/books_card.dart';
 import 'package:flutter/material.dart';
 
 class AllBooksSuccessWidget extends StatelessWidget {
@@ -14,40 +15,31 @@ class AllBooksSuccessWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Container(
-        color: AppColors.mainDark,
-        width: 100,
-        height:
-            ((100 * books.length) + MediaQuery.of(context).size.width) + 24.0,
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 20,
+        padding: const EdgeInsets.only(top: 20),
+        child: Container(
+          color: AppColors.mainDark,
+          width: 100,
+          height: double.maxFinite,
+          child: GridView.builder(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
             ),
-            Expanded(
-              child: ListView.separated(
-                shrinkWrap: true,
-                itemCount: books.length,
-                itemBuilder: (context, index) {
-                  BookModel booksCurrent = books[index];
-                  return BooksHeadline(
-                      booksCurrent.id,
-                      booksCurrent.title,
-                      booksCurrent.author,
-                      booksCurrent.description,
-                      booksCurrent.img,
-                      booksCurrent.date,
-                      booksCurrent.pageCount,
-                      booksCurrent.downloadUrl);
-                },
-                separatorBuilder: (_, __) => const SizedBox(
-                  height: 20.0,
-                ),
-              ),
-            )
-          ],
-        ),
-      ),
-    );
+            shrinkWrap: true,
+            itemCount: books.length,
+            itemBuilder: (context, index) {
+              BookModel booksCurrent = books[index];
+
+              return BooksCard(
+                  booksCurrent.id,
+                  booksCurrent.title,
+                  booksCurrent.author,
+                  booksCurrent.description,
+                  booksCurrent.img,
+                  booksCurrent.date,
+                  booksCurrent.pageCount,
+                  booksCurrent.downloadUrl);
+            },
+          ),
+        ));
   }
 }
