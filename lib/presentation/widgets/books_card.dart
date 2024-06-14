@@ -18,28 +18,36 @@ class BooksCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(left: 10, right: 5, bottom: 10),
+    return Card(
+      elevation: 5,
       color: AppColors.shadowDark,
-      child: InkWell(
-        splashColor: AppColors.beige.withAlpha(30),
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => DetailsView(id, title, author,
-                    description, img, date, pageCount, downloadUrl)),
-          );
-        },
-        child: Padding(
-          padding: const EdgeInsets.all(5.0),
-          child: SizedBox(
-            width: 200,
-            height: MediaQuery.of(context).size.height,
-            child: Image(
-              height: MediaQuery.of(context).size.height * 0.10,
-              width: MediaQuery.of(context).size.width,
-              image: NetworkImage(img ?? ""),
+      child: Container(
+        height: MediaQuery.of(context).size.width / 2,
+        width: MediaQuery.of(context).size.width / 2,
+        padding: EdgeInsets.all(2),
+        constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width / 2),
+        decoration: BoxDecoration(color: AppColors.shadowDark, borderRadius: BorderRadius.all(Radius.circular(10))),
+        margin: const EdgeInsets.only(left: 10, right: 5, bottom: 10),
+        child: InkWell(
+          splashColor: AppColors.beige.withAlpha(30),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => DetailsView(id, title, author,
+                      description, img, date, pageCount, downloadUrl)),
+            );
+          },
+          child: Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: SizedBox(
+              width: 200,
+              height: MediaQuery.of(context).size.height,
+              child: Image(
+                height: MediaQuery.of(context).size.height * 0.10,
+                width: MediaQuery.of(context).size.width,
+                image: NetworkImage(img ?? ""),
+              ),
             ),
           ),
         ),

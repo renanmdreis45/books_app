@@ -12,7 +12,7 @@ class FavoriteBooks extends StatelessWidget {
     return BlocBuilder<BooksBloc, BookState>(
       builder: (context, state) {
         if (state is BooksDone) {
-          return AllBooksSuccessWidget(books: state.books ?? []);
+          return AllBooksSuccessWidget(books: state.favorites ?? []);
         }
 
         return const SizedBox();

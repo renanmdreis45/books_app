@@ -2,7 +2,6 @@ import 'package:books_app/core/constants/colors.dart';
 import 'package:books_app/core/constants/i18n.dart';
 import 'package:books_app/presentation/view/favorites/favorites_view.dart';
 import 'package:books_app/presentation/view/home/home_view.dart';
-import 'package:books_app/presentation/widgets/all_books.dart';
 import 'package:books_app/presentation/widgets/custom_search_delegate.dart';
 import 'package:flutter/material.dart';
 
