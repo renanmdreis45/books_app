@@ -1,4 +1,5 @@
 import 'package:books_app/core/resources/data_state.dart';
+import 'package:books_app/domain/usecase/add_favorite_book.dart';
 import 'package:books_app/domain/usecase/get_favorite_books.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:books_app/domain/usecase/get_all_books.dart';
@@ -8,11 +9,13 @@ import 'package:books_app/presentation/view_model/bloc/books/books_state.dart';
 class BooksBloc extends Bloc<BooksEvent, BookState> {
   final GetAllBooks _getAllBooks;
   final GetFavoriteBooks _getFavoriteBooks;
+  final SaveFavoriteBooks _saveFavoriteBooks;
 
-  BooksBloc(this._getAllBooks, this._getFavoriteBooks)
+  BooksBloc(this._getAllBooks, this._getFavoriteBooks, this._saveFavoriteBooks)
       : super(const BooksLoading()) {
     on<GetBooks>(onGetBooks);
     on<GetFavorites>(onGetFavoriteBooks);
+    on<SaveFavoriteBooks>(_saveFavoriteBook)
   }
 
   void onGetBooks(GetBooks event, Emitter<BookState> emit) async {
@@ -34,4 +37,8 @@ class BooksBloc extends Bloc<BooksEvent, BookState> {
       emit(FavoritesDone(dataState));
     }
   }
+
+  void onAddFavoriteBooks(SaveFavoriteBooks event, Emitter<BookState> emit) async {
+    
+  } 
 }
