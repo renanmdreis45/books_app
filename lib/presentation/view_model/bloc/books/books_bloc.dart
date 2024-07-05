@@ -1,4 +1,5 @@
 import 'package:books_app/core/resources/data_state.dart';
+import 'package:books_app/domain/model/bookModel.dart';
 import 'package:books_app/domain/usecase/add_favorite_book.dart';
 import 'package:books_app/domain/usecase/get_favorite_books.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,7 +16,7 @@ class BooksBloc extends Bloc<BooksEvent, BookState> {
       : super(const BooksLoading()) {
     on<GetBooks>(onGetBooks);
     on<GetFavorites>(onGetFavoriteBooks);
-    on<SaveFavoriteBooks>(_saveFavoriteBook)
+    on<AddFavorites>(onAddFavoriteBooks);
   }
 
   void onGetBooks(GetBooks event, Emitter<BookState> emit) async {
@@ -38,7 +39,13 @@ class BooksBloc extends Bloc<BooksEvent, BookState> {
     }
   }
 
-  void onAddFavoriteBooks(SaveFavoriteBooks event, Emitter<BookState> emit) async {
-    
-  } 
+  void onAddFavoriteBooks(AddFavorites event, Emitter<BookState> emit) async {
+    try {
+      await _saveFavoriteBooks(book: event.newFavoriteBook!);
+      emit(AddFavoritesSuccess(
+          '${event.newFavoriteBook!.title} adicionado aos favoritos'));
+    } catch (e) {
+      emit(AddFavoritesError(e));
+    }
+  }
 }

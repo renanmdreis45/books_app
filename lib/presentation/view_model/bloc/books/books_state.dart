@@ -5,9 +5,20 @@ import 'package:dio/dio.dart';
 abstract class BookState extends Equatable {
   final List<BookModel>? books;
   final List<BookModel>? favorites;
-  final DioException? error;
+  final DioException? booksError;
+  final String? addFavoritesMessage;
+  final DioException? addFavoritesError;
+  final String? removeFavoritesMessage;
+  final DioException? removeFavoritesError;
 
-  const BookState({this.books, this.favorites, this.error});
+  const BookState(
+      {this.books,
+      this.favorites,
+      this.booksError,
+      this.addFavoritesMessage,
+      this.addFavoritesError,
+      this.removeFavoritesMessage,
+      this.removeFavoritesError});
 
   @override
   List<Object> get props => [books!];
@@ -22,9 +33,27 @@ class BooksDone extends BookState {
 }
 
 class BooksError extends BookState {
-  const BooksError(DioException error) : super(error: error);
+  const BooksError(DioException error) : super(booksError: error);
 }
 
 class FavoritesDone extends BookState {
   const FavoritesDone(List<BookModel> favorites) : super(favorites: favorites);
+}
+
+class AddFavoritesSuccess extends BookState {
+  const AddFavoritesSuccess(String addFavoritesMessage)
+      : super(addFavoritesMessage: addFavoritesMessage);
+}
+
+class AddFavoritesError extends BookState {
+  const AddFavoritesError(DioException error) : super(addFavoritesError: error);
+}
+
+class RemoveFavoritesSucess extends BookState {
+  const RemoveFavoritesSucess(String removeFavoritesMessage)
+      : super(removeFavoritesMessage: removeFavoritesMessage);
+}
+
+class RemoveFavoritesError extends BookState {
+  const RemoveFavoritesError(DioException error) : super(removeFavoritesError: error);
 }

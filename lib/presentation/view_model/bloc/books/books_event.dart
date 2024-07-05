@@ -1,22 +1,27 @@
 import 'package:books_app/domain/model/bookModel.dart';
 
 abstract class BooksEvent {
-  const BooksEvent();
+  final List<BookModel>? books;
+  final List<BookModel>? favorites;
+  final BookModel? newFavoriteBook;
+  final String? removeBookId;
+
+  BooksEvent(
+      {this.books, this.favorites, this.newFavoriteBook, this.removeBookId});
 }
 
 class GetBooks extends BooksEvent {
-  const GetBooks();
+  GetBooks({List<BookModel>? books}) : super(books: books!);
 }
 
 class GetFavorites extends BooksEvent {
-  const GetFavorites();
+  GetFavorites({List<BookModel>? favorites}) : super(favorites: favorites!);
 }
 
 class AddFavorites extends BooksEvent {
-  const AddFavorites(this.book);
+  AddFavorites({BookModel? book}) : super(newFavoriteBook: book!);
+}
 
-  final BookModel book;
-
-  @override
-  List<Object> get props => [book];
+class RemoveFavorites extends BooksEvent {
+  RemoveFavorites({String? id}) : super(removeBookId: id);
 }
