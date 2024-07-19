@@ -4,10 +4,10 @@ abstract class BooksEvent {
   final List<BookModel>? books;
   final List<BookModel>? favorites;
   final BookModel? newFavoriteBook;
-  final String? removeBookId;
+  final BookModel? removeBook;
 
   BooksEvent(
-      {this.books, this.favorites, this.newFavoriteBook, this.removeBookId});
+      {this.books, this.favorites, this.newFavoriteBook, this.removeBook});
 }
 
 class GetBooks extends BooksEvent {
@@ -23,5 +23,5 @@ class AddFavorites extends BooksEvent {
 }
 
 class RemoveFavorites extends BooksEvent {
-  RemoveFavorites({String? id}) : super(removeBookId: id);
+  RemoveFavorites({BookModel? book}) : super(removeBook: book);
 }

@@ -7,9 +7,9 @@ abstract class BookState extends Equatable {
   final List<BookModel>? favorites;
   final DioException? booksError;
   final String? addFavoritesMessage;
-  final DioException? addFavoritesError;
+  final Object? addFavoritesError;
   final String? removeFavoritesMessage;
-  final DioException? removeFavoritesError;
+  final Object? removeFavoritesError;
 
   const BookState(
       {this.books,
@@ -46,7 +46,7 @@ class AddFavoritesSuccess extends BookState {
 }
 
 class AddFavoritesError extends BookState {
-  const AddFavoritesError(DioException error) : super(addFavoritesError: error);
+  const AddFavoritesError(Object error) : super(addFavoritesError: error);
 }
 
 class RemoveFavoritesSucess extends BookState {
@@ -55,5 +55,5 @@ class RemoveFavoritesSucess extends BookState {
 }
 
 class RemoveFavoritesError extends BookState {
-  const RemoveFavoritesError(DioException error) : super(removeFavoritesError: error);
+  const RemoveFavoritesError(Object error) : super(removeFavoritesError: error);
 }

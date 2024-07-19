@@ -1,4 +1,5 @@
 import 'package:books_app/core/constants/colors.dart';
+import 'package:books_app/domain/usecase/get_all_books.dart';
 import 'package:books_app/injection_container.dart';
 import 'package:books_app/presentation/view/books/books_view.dart';
 import 'package:books_app/presentation/view/favorites/favorites_view.dart';
@@ -20,8 +21,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<BooksBloc>(
-      create: (context) => sl()..add(const GetBooks()),
+    return BlocProvider(
+      create: (_) => sl<BooksBloc>()..add(GetBooks()),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Books App',

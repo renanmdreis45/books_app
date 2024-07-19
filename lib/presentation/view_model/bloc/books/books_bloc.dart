@@ -2,6 +2,7 @@ import 'package:books_app/core/resources/data_state.dart';
 import 'package:books_app/domain/model/bookModel.dart';
 import 'package:books_app/domain/usecase/add_favorite_book.dart';
 import 'package:books_app/domain/usecase/get_favorite_books.dart';
+import 'package:books_app/domain/usecase/remove_book.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:books_app/domain/usecase/get_all_books.dart';
 import 'package:books_app/presentation/view_model/bloc/books/books_event.dart';
@@ -11,12 +12,15 @@ class BooksBloc extends Bloc<BooksEvent, BookState> {
   final GetAllBooks _getAllBooks;
   final GetFavoriteBooks _getFavoriteBooks;
   final SaveFavoriteBooks _saveFavoriteBooks;
+  final RemoveBook _removeBook;
 
-  BooksBloc(this._getAllBooks, this._getFavoriteBooks, this._saveFavoriteBooks)
+  BooksBloc(this._getAllBooks, this._getFavoriteBooks, this._saveFavoriteBooks,
+      this._removeBook)
       : super(const BooksLoading()) {
     on<GetBooks>(onGetBooks);
     on<GetFavorites>(onGetFavoriteBooks);
     on<AddFavorites>(onAddFavoriteBooks);
+    on<RemoveFavorites>(onRemoveFromFavorites);
   }
 
   void onGetBooks(GetBooks event, Emitter<BookState> emit) async {
@@ -43,9 +47,20 @@ class BooksBloc extends Bloc<BooksEvent, BookState> {
     try {
       await _saveFavoriteBooks(book: event.newFavoriteBook!);
       emit(AddFavoritesSuccess(
-          '${event.newFavoriteBook!.title} adicionado aos favoritos'));
+          'O livro ${event.newFavoriteBook!.title} foi adicionado aos favoritos'));
     } catch (e) {
       emit(AddFavoritesError(e));
+    }
+  }
+
+  void onRemoveFromFavorites(
+      RemoveFavorites event, Emitter<BookState> emit) async {
+    try {
+      await _removeBook(book: event.removeBook!);
+      emit(RemoveFavoritesSucess(
+          'O livro "${event.removeBook!.title}" foi removido dos favoritos'));
+    } catch (e) {
+      emit(RemoveFavoritesError(e));
     }
   }
 }
