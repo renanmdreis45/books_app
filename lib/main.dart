@@ -21,22 +21,19 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => sl<BooksBloc>()..add(GetBooks()),
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Books App',
-        theme: ThemeData(
-          useMaterial3: true,
-          scaffoldBackgroundColor: AppColors.mainDark,
-        ),
-        routes: {
-          '/home': (context) => const HomeView(),
-          '/favorites': (context) => const FavoritesView(),
-        },
-        home: BooksView(
-          initialIndex: 0,
-        ),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Books App',
+      theme: ThemeData(
+        useMaterial3: true,
+        scaffoldBackgroundColor: AppColors.mainDark,
+      ),
+      routes: {
+        '/home': (context) => const HomeView(),
+        '/favorites': (context) => const FavoritesView(),
+      },
+      home: BooksView(
+        initialIndex: 0,
       ),
     );
   }

@@ -13,31 +13,37 @@ import 'package:get_it/get_it.dart';
 final sl = GetIt.instance;
 
 Future<void> initializeDependencies() async {
-  //Database
-  final database =
-      await $FloorAppDatabase.databaseBuilder('app_database.db').build();
-  sl.registerSingleton<AppDatabase>(database);
 
-  //Dio
-  sl.registerSingleton<Dio>(Dio());
+  try {
+    //Database
+    final database =
+        await $FloorAppDatabase.databaseBuilder('app_database.db').build();
+    sl.registerLazySingleton<AppDatabase>(() => database);
 
-  //Service
-  sl.registerSingleton<BooksService>(BooksService(sl()));
+    //Dio
+    sl.registerLazySingleton<Dio>(() => Dio());
 
-  //Repository
-  sl.registerSingleton<BooksRepository>(BooksRepositoryImpl(sl(), sl()));
+    //Service
+    sl.registerSingleton<BooksService>(BooksService(sl()));
 
-  //Blocs
-  sl.registerFactory<BooksBloc>(() => BooksBloc(sl(), sl(), sl(), sl()));
+    //Repository
+    sl.registerSingleton<BooksRepository>(BooksRepositoryImpl(sl(), sl()));
 
-  //Use cases
-  sl.registerLazySingleton<GetAllBooks>(() => GetAllBooks(repository: sl()));
+    //Use cases
+    sl.registerSingleton<GetAllBooks>(GetAllBooks(repository: sl()));
 
-  sl.registerLazySingleton<GetFavoriteBooks>(
-      () => GetFavoriteBooks(repository: sl()));
+    sl.registerSingleton<GetFavoriteBooks>(GetFavoriteBooks(repository: sl()));
 
-  sl.registerLazySingleton<SaveFavoriteBooks>(
-      () => SaveFavoriteBooks(repository: sl()));
+    sl.registerSingleton<SaveFavoriteBooks>(
+        SaveFavoriteBooks(repository: sl()));
 
-  sl.registerLazySingleton<RemoveBook>(() => RemoveBook(repository: sl()));
+    sl.registerSingleton<RemoveBook>(RemoveBook(repository: sl()));
+
+    //Blocs
+    sl.registerFactory<BooksBloc>(() => BooksBloc(sl(), sl(), sl(), sl()));
+  } catch (e, stacktrace) {
+    print('Erro ao inicializar dependências: $e');
+    print(stacktrace);
+  }
+
 }
