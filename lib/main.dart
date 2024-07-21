@@ -1,5 +1,4 @@
 import 'package:books_app/core/constants/colors.dart';
-import 'package:books_app/domain/usecase/get_all_books.dart';
 import 'package:books_app/injection_container.dart';
 import 'package:books_app/presentation/view/books/books_view.dart';
 import 'package:books_app/presentation/view/favorites/favorites_view.dart';
@@ -21,19 +20,22 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Books App',
-      theme: ThemeData(
-        useMaterial3: true,
-        scaffoldBackgroundColor: AppColors.mainDark,
-      ),
-      routes: {
-        '/home': (context) => const HomeView(),
-        '/favorites': (context) => const FavoritesView(),
-      },
-      home: BooksView(
-        initialIndex: 0,
+    return BlocProvider(
+      create: (context) => BooksBloc()..add(GetBooks()),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Books App',
+        theme: ThemeData(
+          useMaterial3: true,
+          scaffoldBackgroundColor: AppColors.mainDark,
+        ),
+        routes: {
+          '/home': (context) => const HomeView(),
+          '/favorites': (context) => const FavoritesView(),
+        },
+        home: BooksView(
+          initialIndex: 0,
+        ),
       ),
     );
   }

@@ -1,3 +1,5 @@
+import 'package:books_app/presentation/view_model/bloc/books/books_bloc.dart';
+import 'package:books_app/presentation/view_model/bloc/books/books_event.dart';
 import 'package:books_app/presentation/widgets/favorite_books.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +12,15 @@ class FavoritesView extends StatefulWidget {
 }
 
 class _FavoritesView extends State<FavoritesView> {
+  late BooksBloc _booksBloc;
+
+  @override
+  void initState() {
+    super.initState();
+    _booksBloc = BooksBloc();
+    _booksBloc.add(GetFavorites());
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(

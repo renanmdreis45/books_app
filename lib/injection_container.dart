@@ -13,7 +13,6 @@ import 'package:get_it/get_it.dart';
 final sl = GetIt.instance;
 
 Future<void> initializeDependencies() async {
-
   try {
     //Database
     final database =
@@ -40,10 +39,14 @@ Future<void> initializeDependencies() async {
     sl.registerSingleton<RemoveBook>(RemoveBook(repository: sl()));
 
     //Blocs
-    sl.registerFactory<BooksBloc>(() => BooksBloc(sl(), sl(), sl(), sl()));
+    sl.registerFactory<BooksBloc>(() => BooksBloc(
+        getAllBooks: sl(),
+        getFavoriteBooks: sl(),
+        saveFavoriteBooks: sl(),
+        removeBook: sl()));
+
   } catch (e, stacktrace) {
     print('Erro ao inicializar dependências: $e');
     print(stacktrace);
   }
-
 }

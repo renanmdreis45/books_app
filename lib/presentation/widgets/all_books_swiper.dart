@@ -17,6 +17,8 @@ class AllBooksSwiper extends StatefulWidget {
 }
 
 class _BooksSwiper extends State<AllBooksSwiper> {
+  BooksBloc? booksBloc;
+
   @override
   void initState() {
     super.initState();
